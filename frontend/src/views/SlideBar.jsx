@@ -22,7 +22,7 @@ export const SlideBar = () => {
             </div>
 
             <div className="flex-1">
-                <img className="h-full" src="../src/assets/perritoSlideBar-sinBG.png" alt="" />
+                <img className="h-full" src="../src/assets/dogSmile.png" alt="" />
             </div>
 
         </div>
