@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="Container">
       <Login />
-      <ProductsList />
       <SlideBar />
+      <ProductsList />
     </div>
   );
 }
