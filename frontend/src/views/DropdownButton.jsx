@@ -1,6 +1,4 @@
-import React from 'react';
-
-function ButtonDropdown({ title, products }) {
+const ButtonDropdown = ({ title, products }) => {
   return (
     <div className="group">
       <button className=" bg-teal-200 p-5 group-hover:bg-teal-100">

@@ -1,10 +1,11 @@
 import ButtonDropdown from './DropdownButton';
+
 const petProducts = ["alimento concentrado", "humedo", "dietas naturales", "galletas-snacks", "antibioticos", "cuidado e higiene", "juguetes e interactivos"];
 const others = ['necesidades especiales', 'adulto', 'cachorro', 'senior', 'castrado/light'];
 const promotions = ['descuentos', 'especiales'];
 const services = ['servicios de veterinaria a domicilio'];
 
-function NavBar() {
+const NavBar = () => {
   return (
     <>
       <nav className="flex flex-row justify-around bg-teal-200">
