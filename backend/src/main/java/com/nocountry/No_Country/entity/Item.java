@@ -27,7 +27,7 @@ public class Item {
     private Long stock;
     @NotNull
     private CategoryEnum category;
-    @NotNull
+
     private String imageUrl;
 
     @ManyToOne

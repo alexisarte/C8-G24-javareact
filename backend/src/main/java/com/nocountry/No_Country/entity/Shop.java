@@ -25,8 +25,10 @@ public class Shop {
     private String email;
     @NotNull
     private String password;
-    @NotNull
+
     private String imageUrl;
+    private String openingHours;
+    private Double shipping;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="location_id")
