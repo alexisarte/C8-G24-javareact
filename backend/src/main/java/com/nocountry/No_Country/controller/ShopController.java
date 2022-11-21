@@ -22,9 +22,7 @@ public class ShopController {
 
     //TODO agregar String para UrlImage a items
 
-    //TODO agregar String para UrlImage a shop
 
-    //TODO Agregar Double a shop para costo de envio
 
-    //
+
 }
