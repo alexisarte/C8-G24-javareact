@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class ShopController {
 
 
-    //TODO Crear las funciones faltantes de Mappers.
-
     //TODO Realizar primeros test para comprobar que la relaciones funcionan entre si.
 
     //TODO CORS protocol.
@@ -17,14 +15,6 @@ public class ShopController {
     //TODO Crear DTOS en base a necesidades para evitar información no util.
 
     //TODO Comparar costos entre productos de una misma ciudad
-
-    //TODO agregar String horarios de atencion a SHOP
-
-    //TODO agregar String para UrlImage a items
-
-    //TODO agregar String para UrlImage a shop
-
-    //TODO Agregar Double a shop para costo de envio
 
     //
 }
