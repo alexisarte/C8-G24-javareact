@@ -1,30 +1,13 @@
+import { Slide } from "./Slide"
 
 export const SlideBar = () => {
+    const slides = [
+        { descuento: '50%', titulo1: 'APROVECHA NUESTRO', titulo2: 'BLACK FRIDAY', titulo3: 'OFERTAS IMPERDIBLES', url: '../src/assets/dogSmile.png', bg: '#F7D3F3' },
+        { descuento: '30%', titulo1: 'APROVECHA NUESTRO', titulo2: 'BLACK FRIDAY', titulo3: 'OFERTAS IMPERDIBLES', url: '../src/assets/dogSmile.png', bg: '#90A8FF' },
+        { descuento: '40%', titulo1: 'APROVECHA NUESTRO', titulo2: 'BLACK FRIDAY', titulo3: 'OFERTAS IMPERDIBLES', url: '../src/assets/dogSmile.png', bg: '#78A55A' }
+    ]
+
     return (
-        <div className="flex bg-red-100">
-
-            <span className="flex-1 flex flex-col justify-center items-center h-96 text-9xl">
-                50%
-            </span>
-
-            <div className="flex-1">
-
-                <div className="flex flex-col justify-center items-center h-96">
-
-                    <span className="text-3xl">APROVECHA NUESTRO</span>
-
-                    <p className="text-6xl py-8">BLACK FRIDAY</p>
-
-                    <span className="text-3xl">¡OFERTAS IMPERDIBLES!</span>
-
-                </div>
-
-            </div>
-
-            <div className="flex-1">
-                <img className="h-full" src="../src/assets/dogSmile.png" alt="" />
-            </div>
-
-        </div>
+        <Slide slides={slides} />
     )
 }
