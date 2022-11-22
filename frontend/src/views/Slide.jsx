@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const Slide = ({ slides }) => {
+export const Slide = ({ slides = [] }) => {
 
     const [index, setIndex] = useState(0)
 
@@ -17,17 +17,17 @@ export const Slide = ({ slides }) => {
     return (
         <div className="flex" style={{ backgroundColor: `${slides[index].bg}` }}>
 
-            <button onClick={handleClickBack}><i className="fa-solid fa-caret-left pl-3"></i></button>
+            <button onClick={handleClickBack}><i className="fa-solid fa-caret-left pl-3 animate-pulse"></i></button>
 
             <span className="flex-1 flex flex-col justify-center items-center h-96 text-9xl">
                 {slides[index].descuento}
             </span>
 
             <div className="flex-1">
-                <div className="flex flex-col justify-center items-center h-96">
-                    <span className="text-3xl">{slides[index].titulo1}</span>
-                    <p className="text-6xl py-8">{slides[index].titulo2}</p>
-                    <span className="text-3xl">{slides[index].titulo3}</span>
+                <div className="flex flex-col justify-between items-center h-96">
+                    <span className="text-3xl pt-10">{slides[index].titulo1}</span>
+                    <p className="text-6xl py-8 text-center">{slides[index].titulo2}</p>
+                    <span className="text-3xl pb-10">{slides[index].titulo3}</span>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@ export const Slide = ({ slides }) => {
                 <img className="h-full" src={slides[index].url} alt="" />
             </div>
 
-            <button onClick={handleClickNext}><i className="fa-solid fa-caret-right pr-3"></i></button>
+            <button onClick={handleClickNext}><i className="fa-solid fa-caret-right pr-3 animate-pulse"></i></button>
 
         </div>
     )
