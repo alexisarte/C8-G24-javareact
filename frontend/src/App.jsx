@@ -3,6 +3,7 @@ import Home from './views/Home';
 import { Routes, Route } from 'react-router-dom';
 import YellowTop from "./views/YellowTop";
 import { Onboarding } from './views/Onboarding';
+import Dogs from './views/Dogs';
 
 function App() {
   const [load, setLoad] = useState(true)
@@ -21,11 +22,12 @@ function App() {
 
   return (
     <div className="Container">
-     <YellowTop/>
+      <YellowTop />
       <Routes>
         <Route path="/" element={<Home />} />
-      </Routes> 
-      
+        <Route path="/login" element={<Login />} />
+        <Route path="/dogs/:product" element={<Dogs />}></Route>
+      </Routes>
     </div>
   );
     }
