@@ -17,7 +17,7 @@ export const Slide = ({ slides }) => {
     return (
         <div className="flex" style={{ backgroundColor: `${slides[index].bg}` }}>
 
-            <button onClick={handleClickBack}>back</button>
+            <button onClick={handleClickBack}><i className="fa-solid fa-caret-left pl-3"></i></button>
 
             <span className="flex-1 flex flex-col justify-center items-center h-96 text-9xl">
                 {slides[index].descuento}
@@ -35,7 +35,7 @@ export const Slide = ({ slides }) => {
                 <img className="h-full" src={slides[index].url} alt="" />
             </div>
 
-            <button onClick={handleClickNext}>next</button>
+            <button onClick={handleClickNext}><i className="fa-solid fa-caret-right pr-3"></i></button>
 
         </div>
     )
