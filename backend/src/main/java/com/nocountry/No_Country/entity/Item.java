@@ -26,11 +26,10 @@ public class Item {
     @NotNull @Min(0)
     private Long stock;
     @NotNull
+    @Enumerated(value = EnumType.STRING)
     private CategoryEnum category;
 
     private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name="cart_id")
-    private Cart cart;
+
 }

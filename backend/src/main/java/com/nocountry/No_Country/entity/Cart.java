@@ -7,9 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -27,9 +25,25 @@ public class Cart {
     private Double totalAmount;
 
 
-    @OneToMany(mappedBy = "cart")
-    private List<Item> items;
+    @ManyToMany(cascade ={
+            CascadeType.PERSIST,CascadeType.MERGE
+    },fetch = FetchType.LAZY)
+    @JoinTable(name = "cart_item",
+            joinColumns = @JoinColumn(name="id_item"),
+            inverseJoinColumns = @JoinColumn(name="id_cart"))
+    private List<Item> items = new ArrayList<>();
 
     @OneToOne
     private User user;
+
+
+    public void addItem(Item item){
+        this.items.add(item);
+    }
+
+    public void deleteItem(Long itemId){
+        this.items.stream().filter(
+                itemMap -> Objects.equals(itemMap.getId(), itemId))
+                .findFirst().ifPresent(item -> this.items.remove(item));
+    }
 }

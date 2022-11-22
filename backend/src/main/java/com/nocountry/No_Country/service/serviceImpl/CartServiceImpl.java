@@ -39,12 +39,8 @@ public class CartServiceImpl implements CartService {
         Item item = itemRepository.findById(itemId).orElseThrow(
                 ()->new RuntimeException("Item not found"));
 
-        List<Item> cartItems = cart.getItems();
-
-        cartItems.add(item);
-
+        cart.addItem(item);
         cartRepository.save(cart);
-
         return cartMapper.cartEntity2DTO(cart);
 
     }
