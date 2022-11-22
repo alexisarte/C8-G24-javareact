@@ -1,16 +1,17 @@
-import { useState } from "react";
-import Login from "./views/Login";
-import ProductsList from "./views/ProductsLists";
-import { SlideBar } from "./views/SlideBar";
+import { useState } from 'react';
+import Login from './views/Login';
+import Home from './views/Home';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div className="Container">
-      <Login />
-      <SlideBar />
-      <ProductsList />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
