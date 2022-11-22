@@ -1,18 +1,18 @@
-const ButtonDropdown = ({ title, products }) => {
+import { Link } from 'react-router-dom';
+
+const DropdownButton = ({ title, products, path }) => {
   return (
     <div className="group">
-      <button className=" bg-teal-200 p-5 group-hover:bg-teal-100">
-        {title}
-      </button>
-      <div className="hidden absolute group-hover:block  bg-stone-400">
+      <button className="p-5 group-hover:bg-teal-100">{title}</button>
+      <div className="hidden absolute md:group-hover:block  bg-stone-400">
         {products.map((product, i) => (
-          <a key={i} href="#" className="px-28 py-3 no-underline block hover:bg-stone-500">
+          <Link to={`${path}/:${product}`} key={i} className="px-5 py-3 block hover:bg-stone-500">
             {product}
-          </a>
+          </Link>
         ))}
       </div>
     </div>
   );
-}
+};
 
-export default ButtonDropdown;
+export default DropdownButton;

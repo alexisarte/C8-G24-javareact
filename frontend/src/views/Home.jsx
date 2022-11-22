@@ -6,9 +6,9 @@ import Services from './Services';
 const Home = () => {
   return (
     <>
-      <button className="bg-red-200 p-5">
+      {/* <button className="bg-red-200 p-5">
         <Link to="/login">Login</Link>
-      </button>
+      </button> */}
       <NavBar />
       <SlideBar />
       <Services />
