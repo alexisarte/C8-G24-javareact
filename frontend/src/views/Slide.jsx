@@ -5,12 +5,12 @@ export const Slide = ({ slides = [] }) => {
     const [index, setIndex] = useState(0)
 
     const handleClickNext = () => {
-        if (index === 2) return
+        if (index === 2) return setIndex(0)
         setIndex(index + 1)
     }
 
     const handleClickBack = () => {
-        if (index === 0) return
+        if (index === 0) return setIndex(2)
         setIndex(index - 1)
     }
 
