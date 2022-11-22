@@ -14,6 +14,18 @@ public class ShopController {
     private ShopService shopService;
     //TODO Realizar primeros test para comprobar que la relaciones funcionan entre si.
 
+    //TODO Comparar costos entre productos de una misma ciudad (Ale)
+
+    //TODO CRUD usuarios
+
+    //TODO CRUD item (Leandro)
+
+    //TODO CRUD shop (Leandro)
+
+    //TODO CRUD location
+
+    //TODO login
+
     //TODO CORS protocol.
 
     //TODO Crear DTOS en base a necesidades para evitar información no util.
