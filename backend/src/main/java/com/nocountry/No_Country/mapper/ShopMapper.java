@@ -2,6 +2,7 @@ package com.nocountry.No_Country.mapper;
 
 import com.nocountry.No_Country.dtos.ShopDTO;
 import com.nocountry.No_Country.entity.Shop;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,7 +10,8 @@ import java.util.List;
 
 @Component
 public class ShopMapper {
-
+    @Autowired
+    private ItemMapper itemMapper;
 
     public ShopDTO shopEntity2DTO(Shop shop){
         ShopDTO dto = new ShopDTO();
@@ -19,6 +21,7 @@ public class ShopMapper {
         dto.setLocationId(shop.getLocation().getLocation_id());
         dto.setPhoneNumber(shop.getPhoneNumber());
         dto.setImageUrl(shop.getImageUrl());
+        dto.setShopItems(itemMapper.itemEntityList2DTOList(shop.getShopItems()));
         return dto;
     }
 

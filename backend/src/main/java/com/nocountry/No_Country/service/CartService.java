@@ -5,4 +5,5 @@ import com.nocountry.No_Country.dtos.CartDTO;
 public interface CartService {
 
     CartDTO addItem2Cart(Long cartId, Long itemId);
+    CartDTO removeItemFromCart(Long userId, Long itemId);
 }

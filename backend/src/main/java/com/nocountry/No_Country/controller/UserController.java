@@ -7,7 +7,6 @@ import com.nocountry.No_Country.service.CartService;
 import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,10 +39,16 @@ public class UserController {
         return ResponseEntity.ok().body(this.locationService.getBasicLocationById(id));
     }
 
-    @PostMapping("{userId}/{itemId}")
+    @PostMapping("{userId}/add/{itemId}")
         public ResponseEntity<CartDTO> addItem2Cart(@PathVariable Long userId,
                                                     @PathVariable Long itemId){
         return ResponseEntity.ok().body(this.cartService.addItem2Cart(userId,itemId));
         }
 
+
+    @DeleteMapping("/{userId}/delete/{itemId}")
+    public ResponseEntity<CartDTO> removeItemFromCart(@PathVariable Long userId,
+                                                @PathVariable Long itemId){
+        return ResponseEntity.ok().body(this.cartService.removeItemFromCart(userId,itemId));
+    }
 }

@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -34,5 +37,22 @@ public class Shop {
     @JoinColumn(name="location_id")
     private Location location;
 
+    @ManyToMany(cascade ={
+            CascadeType.PERSIST,CascadeType.MERGE
+    },fetch = FetchType.LAZY)
+    @JoinTable(name = "shop_item",
+            joinColumns = @JoinColumn(name="id_item"),
+            inverseJoinColumns = @JoinColumn(name="id_shop"))
+    private List<Item> shopItems = new ArrayList<>();
+
+    public void addItem(Item item){
+        this.shopItems.add(item);
+    }
+
+    public void deleteItem(Long itemId){
+        this.shopItems.stream().filter(
+                        itemMap -> Objects.equals(itemMap.getId(), itemId))
+                .findFirst().ifPresent(item -> this.shopItems.remove(item));
+    }
 
 }
