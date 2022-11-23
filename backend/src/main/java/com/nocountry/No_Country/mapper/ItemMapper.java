@@ -1,5 +1,6 @@
 package com.nocountry.No_Country.mapper;
 
+import com.nocountry.No_Country.dtos.BasicItemDTO;
 import com.nocountry.No_Country.dtos.ItemDTO;
 import com.nocountry.No_Country.entity.Item;
 import org.springframework.stereotype.Component;
@@ -26,5 +27,23 @@ public class ItemMapper {
             itemsDtos.add(this.itemEntity2DTO(item));
         }
         return itemsDtos;
+    }
+
+    public Item itemDTO2Entity(ItemDTO dto){
+        Item item = new Item();
+        item.setName(dto.getName());
+        item.setCategory(dto.getCategory());
+        item.setImageUrl(dto.getImageUrl());
+        item.setPrice(dto.getPrice());
+        return item;
+    }
+
+    public BasicItemDTO itemEntity2BasicDTO(Item item){
+        BasicItemDTO basicItemDTO = new BasicItemDTO();
+        basicItemDTO.setImageUrl(item.getImageUrl());
+        basicItemDTO.setName(item.getName());
+        basicItemDTO.setPrice(item.getPrice());
+        basicItemDTO.setStock(item.getStock());
+        return basicItemDTO;
     }
 }
