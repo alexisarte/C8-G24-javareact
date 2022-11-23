@@ -1,23 +1,27 @@
 import { useState } from "react"
+import { ArrowLeft } from "./slideBar/ArrowLeft"
+import { ArrowRight } from "./slideBar/ArrowRight"
 
 export const Slide = ({ slides = [] }) => {
 
     const [index, setIndex] = useState(0)
 
-    const handleClickNext = () => {
-        if (index == 1) return setIndex(0)
-        setIndex(index + 1)
-    }
-
-    const handleClickBack = () => {
-        if (index == 0) return setIndex(0)
-        setIndex(index - 1)
+    const handleClickNext = (value) => {
+        if (value == 'left') {
+            setIndex(index + 1)
+            if (index == 1) return setIndex(0)
+        }
+        if (value == 'right') {
+            setIndex(index - 1)
+            if (index == 0) return setIndex(1)
+        }
     }
 
     return (
-        <div className="flex" style={{ backgroundColor: `${slides[index].bg}` }}>
-
-            <button onClick={handleClickBack}><i className="fa-solid fa-caret-left pl-3 animate-pulse"></i></button>
+        <div className="flex relative" style={{ backgroundColor: `${slides[index].bg}` }}>
+            <div onClick={() => handleClickNext('left')} className='flex justify-center flex-col'>
+                <ArrowLeft />
+            </div>
 
             <strong className="flex-1 flex flex-col justify-center items-center h-96 text-9xl">
                 {slides[index].descuento}
@@ -35,8 +39,9 @@ export const Slide = ({ slides = [] }) => {
                 <img className="h-full" src={slides[index].url} alt="" />
             </div>
 
-            <button onClick={handleClickNext}><i className="fa-solid fa-caret-right pr-3 animate-pulse"></i></button>
-
+            <div onClick={() => handleClickNext('right')} className='flex flex-col justify-center'>
+                <ArrowRight />
+            </div>
         </div>
     )
 }
