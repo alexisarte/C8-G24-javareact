@@ -21,7 +21,7 @@ const services = ['servicios de veterinaria a domicilio'];
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between p-3 fixed w-screen max-w-full md:p-0 md:static md:flex bg-teal-200 border-b-2 border-white">
+    <nav className="flex justify-between p-3 fixed w-screen max-w-full md:p-0 md:static md:flex bg-teal-200 border-white">
       <div></div>
       <div className="menu hidden flex-col justify-center absolute top-0 left-0 w-1/2 h-screen z-10 bg-teal-300 pt-40 pl-7 md:bg-teal-200 md:static md:h-full md:flex md:flex-row md:justify-around md:w-full md:translate-x-0 md:p-0">
         <DropdownButton title="Perros" products={petProducts} path="/dogs" />
