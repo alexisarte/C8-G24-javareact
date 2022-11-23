@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { SlideBar } from './SlideBar';
-import NavBar from './NavBar';
+import NavBar from './navBar/NavBar';
 import Services from './Services';
 
 const Home = () => {
