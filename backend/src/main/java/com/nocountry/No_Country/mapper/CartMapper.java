@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class CartMapper {
     private final ItemMapper itemMapper;
+
     @Autowired
-    public CartMapper(ItemMapper itemMapper) {
+    public CartMapper(ItemMapper itemMapper)
+    {
         this.itemMapper = itemMapper;
     }
 
@@ -22,5 +24,7 @@ public class CartMapper {
         dto.setTotalAmount(cart.getTotalAmount());
         return dto;
     }
+
+
 
 }

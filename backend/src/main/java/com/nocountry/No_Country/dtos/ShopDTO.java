@@ -27,4 +27,6 @@ public class ShopDTO {
 
     private List<ItemDTO> shopItems;
 
+    private String openingHours;
+
 }

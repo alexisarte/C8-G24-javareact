@@ -1,5 +1,6 @@
 package com.nocountry.No_Country.service.serviceImpl;
 
+import com.nocountry.No_Country.dtos.BasicShopDTO;
 import com.nocountry.No_Country.dtos.ShopDTO;
 import com.nocountry.No_Country.entity.Item;
 import com.nocountry.No_Country.entity.Shop;
@@ -44,5 +45,35 @@ public class ShopServiceImpl implements ShopService {
         shopRepository.save(shop);
         return shopMapper.shopEntity2DTO(shop);
     }
+
+    public ShopDTO createShop(ShopDTO dto){
+        Shop shop = shopMapper.shopDTO2Entity(dto);
+        Shop shopSaved = shopRepository.save(shop);
+        return shopMapper.shopEntity2DTO(shopSaved);
+
+    }
+
+    public ShopDTO updateShop(ShopDTO dto){
+        Shop shop = shopMapper.shopDTO2Entity(dto);
+        shop.setId(dto.getId());
+        Shop shopUpdated = shopRepository.save(shop);
+        return shopMapper.shopEntity2DTO(shopUpdated);
+    }
+
+    public String deleteShop(Long shopId){
+        Shop shop = shopRepository.findById(shopId).orElseThrow(
+                ()-> new RuntimeException("Shop not found"));
+
+        shopRepository.delete(shop);
+
+        return("Shop " + shop.getName() +" has been deleted");
+    }
+
+    public BasicShopDTO getShopById(Long shopId){
+        Shop shop = shopRepository.findById(shopId).orElseThrow(
+                ()-> new RuntimeException("Shop not found"));
+        return shopMapper.shopEntity2BasicDTO(shop);
+    }
+
 
 }

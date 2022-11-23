@@ -57,4 +57,11 @@ public class CartServiceImpl implements CartService {
 
         return cartMapper.cartEntity2DTO(cart);
     }
+
+    public Cart createCartForNewUser(Long userId){
+        Cart cart = new Cart();
+        cart.setUser(userRepository.findById(userId).orElseThrow(
+                ()-> new RuntimeException("User not found")));
+        return cart;
+    }
 }

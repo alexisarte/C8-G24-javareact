@@ -4,6 +4,7 @@ import com.nocountry.No_Country.dtos.UserDTO;
 import com.nocountry.No_Country.entity.User;
 import com.nocountry.No_Country.mapper.UserMapper;
 import com.nocountry.No_Country.repository.UserRepository;
+import com.nocountry.No_Country.service.CartService;
 import com.nocountry.No_Country.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +15,25 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper  userMapper;
+    private final CartService cartService;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository,CartService cartService ,UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
+        this.cartService = cartService;
     }
 
     public List<UserDTO> getAllUsers(){
         List<User> users = userRepository.findAll();
         return (userMapper.userEntityList2DTOList(users));
 
+    }
+
+    public UserDTO createProvisionalUser(UserDTO userDTO){
+        User user = userMapper.userDTO2Entity(userDTO);
+        User userSaved = userRepository.save(user);
+        userSaved.setCart(cartService.createCartForNewUser(userSaved.getId()));
+        return userMapper.userEntity2DTO(userSaved);
     }
 
 
