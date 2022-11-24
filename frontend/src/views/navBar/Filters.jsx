@@ -1,4 +1,4 @@
-function Filters() {
+const Filters = () => {
   return (
     <div className="w-60 bg-blue-300">
       <h1>Filters</h1>
@@ -16,6 +16,6 @@ function Filters() {
       </ul>
     </div>
   );
-}
+};
 
 export default Filters;

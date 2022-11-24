@@ -1,58 +1,48 @@
-import DropdownButton from './DropdownButton';
+import DropdownButton from "./DropdownButton";
 
 const petProducts = [
-  'alimento concentrado',
-  'humedo',
-  'dietas naturales',
-  'galletas-snacks',
-  'antibioticos',
-  'cuidado e higiene',
-  'juguetes e interactivos',
+  "alimento húmedo",
+  "alimento seco",
+  "alimento balanceado",
+  "higiene",
+  "snacks"
 ];
-const others = [
-  'necesidades especiales',
-  'adulto',
-  'cachorro',
-  'senior',
-  'castrado/light',
-];
-const promotions = ['descuentos', 'especiales'];
-const services = ['servicios de veterinaria a domicilio'];
+const others = ["dieta", "necesidades especiales"];
+const promotions = ["juguetes", "accesorios", "cachorro", "adulto"];
+const services = ["servicios veterinarios"];
 
 const NavBar = () => {
   return (
-    <nav className="flex justify-between p-3 fixed w-screen max-w-full md:p-0 md:static md:flex bg-teal-200 border-white">
-      <div></div>
-      <div className="menu hidden flex-col justify-center absolute top-0 left-0 w-1/2 h-screen z-10 bg-teal-300 pt-40 pl-7 md:bg-teal-200 md:static md:h-full md:flex md:flex-row md:justify-around md:w-full md:translate-x-0 md:p-0">
-        <DropdownButton title="Perros" products={petProducts} path="/dogs" />
-        <DropdownButton title="Gatos" products={petProducts} />
-        <DropdownButton title="Otros" products={others} />
-        <DropdownButton title="Promociones" products={promotions} />
-        <DropdownButton title="Servicios" products={services} />
+    <nav
+      className="capitalize flex justify-between p-3 static w-screen max-w-full md:p-0 md:static md:flex bg-teal-200 border-white"
+      onClick={() => {
+        // if (document.querySelector('.menu').classList.contains('-translate-x-[110%]')) {
+        //   document.querySelector('.menu').classList.remove('-translate-x-[110%]');
+        //   document.querySelector('.menu').classList.add('translate-x-[0]');
+        // }
+        const menu = document.querySelector(".bars");
+        menu.classList.toggle("hidden");
+        const menuBars = document.querySelector(".close");
+        menuBars.classList.toggle("hidden");
+        const nav = document.querySelector(".menu");
+        nav.classList.toggle("hidden");
+      }}
+    >
+      <div className="menu hidden flex-col justify-center absolute left-0 mt-9 md:m-0  w-1/2 h-screen z-10 bg-teal-600 pt-40 pl-7 md:bg-teal-200 md:static md:h-full md:flex md:flex-row md:justify-around md:w-full md:p-0 -translate-x-[110%] transition-all duration-[300ms] ease-in-out">
+        <DropdownButton title="perros" products={petProducts} path="/dogs" />
+        <DropdownButton title="gatos" products={petProducts} />
+        <DropdownButton title="otros" products={others} />
+        <DropdownButton title="promociones" products={promotions} />
+        <DropdownButton title="servicios" products={services} />
       </div>
-      <div className="block md:hidden">
-        <i
-          className="fas fa-bars text-2xl"
-          onClick={() => {
-            const menu = document.querySelector('.fa-bars');
-            menu.classList.toggle('hidden');
-            const menuBars = document.querySelector('.fa-close');
-            menuBars.classList.toggle('hidden');
-            const nav = document.querySelector('.menu');
-            nav.classList.toggle('hidden');
-          }}
-        ></i>
-        <i
-          className="fas fa-close hidden text-2xl"
-          onClick={() => {
-            const menu = document.querySelector('.fa-close');
-            menu.classList.toggle('hidden');
-            const menuBars = document.querySelector('.fa-bars');
-            menuBars.classList.toggle('hidden');
-            const nav = document.querySelector('.menu');
-            nav.classList.toggle('hidden');
-          }}
-        ></i>
+      <div className="flex md:hidden ">
+        <div className="bars">
+          <i className="fas fa-bars text-2xl mr-2"></i>
+        </div>
+        <div className="close hidden">
+          <i className="fas fa-close text-2xl  mr-2"></i>
+        </div>
+        opciones
       </div>
     </nav>
   );
