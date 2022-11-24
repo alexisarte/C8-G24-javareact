@@ -1,6 +1,9 @@
 package com.nocountry.No_Country.controller;
 
+import com.nocountry.No_Country.dtos.BasicShopDTO;
+import com.nocountry.No_Country.dtos.ItemDTO;
 import com.nocountry.No_Country.dtos.ShopDTO;
+import com.nocountry.No_Country.service.ItemService;
 import com.nocountry.No_Country.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,16 +13,24 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/shop")
 public class ShopController {
 
+    private final ShopService shopService;
+    private final ItemService itemService;
+
     @Autowired
-    private ShopService shopService;
+    public ShopController(ShopService shopService, ItemService itemService) {
+        this.shopService = shopService;
+        this.itemService = itemService;
+    }
 
     //TODO Realizar primeros test para comprobar que la relaciones funcionan entre si.
 
     //TODO Comparar costos entre productos de una misma ciudad (Ale)
 
-    //TODO CRUD location (Lean)
+    //TODO crear entidad transaccion (Monto total, items, costo envio, direccion shop, direccion usuario)
 
     //TODO Resolver suma total carrito
+
+    //TODO Resolver precio para cada item segun shop.
 
     //TODO Resolver Stock de tienda
 
@@ -50,4 +61,25 @@ public class ShopController {
                                                          @PathVariable Long shopId){
             return ResponseEntity.ok().body(shopService.removeItemFromShop(shopId,itemId));
     }
+
+    @GetMapping("/{shopId}")
+        public ResponseEntity<BasicShopDTO> getShopById(@PathVariable Long shopId){
+            return ResponseEntity.ok().body(shopService.getShopById(shopId));
+        }
+
+    @PostMapping
+        public ResponseEntity<ShopDTO> createShop(@RequestBody ShopDTO dto){
+        return ResponseEntity.ok().body(shopService.createShop(dto));
+    }
+
+    @DeleteMapping("/delete/{shopId}")
+        public ResponseEntity<String> deleteShop(@PathVariable Long shopId){
+        return ResponseEntity.ok().body(shopService.deleteShop(shopId));
+    }
+
+    @PostMapping("item/create")
+    public ResponseEntity<ItemDTO> createItem(@RequestBody ItemDTO dto){
+        return ResponseEntity.ok().body(itemService.createItem(dto));
+    }
+
 }

@@ -43,7 +43,17 @@ public class ItemMapper {
         basicItemDTO.setImageUrl(item.getImageUrl());
         basicItemDTO.setName(item.getName());
         basicItemDTO.setPrice(item.getPrice());
-        basicItemDTO.setStock(item.getStock());
         return basicItemDTO;
+    }
+
+    public List<BasicItemDTO> itemEntityList2BasicDTOList(List<Item> items){
+
+        List<BasicItemDTO> basicItems = new ArrayList<>();
+
+        for(Item item : items){
+            basicItems.add(this.itemEntity2BasicDTO(item));
+        }
+        return basicItems;
+
     }
 }

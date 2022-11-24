@@ -1,6 +1,7 @@
 package com.nocountry.No_Country.controller;
 
 import com.nocountry.No_Country.dtos.BasicLocationDTO;
+import com.nocountry.No_Country.dtos.BasicUserDTO;
 import com.nocountry.No_Country.dtos.CartDTO;
 import com.nocountry.No_Country.dtos.UserDTO;
 import com.nocountry.No_Country.service.CartService;
@@ -50,5 +51,10 @@ public class UserController {
     public ResponseEntity<CartDTO> removeItemFromCart(@PathVariable Long userId,
                                                 @PathVariable Long itemId){
         return ResponseEntity.ok().body(this.cartService.removeItemFromCart(userId,itemId));
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<BasicUserDTO> getUserById(@PathVariable Long userId){
+        return ResponseEntity.ok().body(userService.getUserById(userId));
     }
 }

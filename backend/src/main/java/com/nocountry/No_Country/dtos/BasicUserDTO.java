@@ -11,5 +11,5 @@ public class BasicUserDTO {
     private String firstName;
     private String lastName;
     private Long locationId;
-    private CartDTO cartDTO;
+    private BasicCartDTO cartDTO;
 }

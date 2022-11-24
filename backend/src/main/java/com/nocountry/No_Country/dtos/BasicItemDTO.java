@@ -10,7 +10,6 @@ import lombok.Setter;
 public class BasicItemDTO {
     private String name;
     private Double price;
-    private Long stock;
     private String imageUrl;
 
 }

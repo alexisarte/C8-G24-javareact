@@ -10,4 +10,5 @@ public interface UserService {
     List<UserDTO> getAllUsers();
     String deleteUser(Long userId);
     BasicUserDTO getUserById(Long userId);
+    UserDTO createProvisionalUser(UserDTO userDTO);
 }

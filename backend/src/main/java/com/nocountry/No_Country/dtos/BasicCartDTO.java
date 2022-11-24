@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class BasicCartDTO {
-    private List<ItemDTO> items;
+    private List<BasicItemDTO> items;
     private Double totalAmount;
     private Long user;
 }

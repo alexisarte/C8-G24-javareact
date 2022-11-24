@@ -1,5 +1,6 @@
 package com.nocountry.No_Country.mapper;
 
+import com.nocountry.No_Country.dtos.BasicCartDTO;
 import com.nocountry.No_Country.dtos.CartDTO;
 import com.nocountry.No_Country.entity.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,14 @@ public class CartMapper {
         dto.setTotalAmount(cart.getTotalAmount());
         return dto;
     }
+    public BasicCartDTO cartEntity2BasicDTO(Cart cart){
+        BasicCartDTO cartDTO = new BasicCartDTO();
 
+        cartDTO.setItems(itemMapper.itemEntityList2BasicDTOList(cart.getItems()));
+        cartDTO.setUser(cart.getUser().getId());
+        cartDTO.setTotalAmount(cart.getTotalAmount());
+        return cartDTO;
+    }
 
 
 }

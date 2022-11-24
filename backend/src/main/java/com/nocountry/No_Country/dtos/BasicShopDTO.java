@@ -4,14 +4,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 public class BasicShopDTO {
     private String name;
     private Long phoneNumber;
-    private Long locationId;
+    private String city;
     private String imageUrl;
     private String openingHours;
+    private List<BasicItemDTO> shopItems;
 
 }

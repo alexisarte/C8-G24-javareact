@@ -58,7 +58,7 @@ public class UserMapper {
     public BasicUserDTO userEntity2BasicDTO(User user){
         BasicUserDTO basicUserDTO = new BasicUserDTO();
 
-        basicUserDTO.setCartDTO(cartMapper.cartEntity2DTO(user.getCart()));
+        basicUserDTO.setCartDTO(cartMapper.cartEntity2BasicDTO(user.getCart()));
         basicUserDTO.setFirstName(user.getFirstName());
         basicUserDTO.setLastName(user.getLastName());
         basicUserDTO.setLocationId(user.getLocation().getLocation_id());

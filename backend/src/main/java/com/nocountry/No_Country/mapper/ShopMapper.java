@@ -12,10 +12,13 @@ import java.util.List;
 
 @Component
 public class ShopMapper {
+    private final ItemMapper itemMapper;
+    private final LocationRepository locationRepository;
     @Autowired
-    private ItemMapper itemMapper;
-    @Autowired
-    private LocationRepository locationRepository;
+    public ShopMapper(ItemMapper itemMapper, LocationRepository locationRepository) {
+        this.itemMapper = itemMapper;
+        this.locationRepository = locationRepository;
+    }
 
     public ShopDTO shopEntity2DTO(Shop shop){
         ShopDTO dto = new ShopDTO();
@@ -53,9 +56,10 @@ public class ShopMapper {
     public BasicShopDTO shopEntity2BasicDTO(Shop shop){
         BasicShopDTO basicShopDTO = new BasicShopDTO();
         basicShopDTO.setName(shop.getName());
-        basicShopDTO.setLocationId(shop.getLocation().getLocation_id());
+        basicShopDTO.setCity(shop.getLocation().getCity());
         basicShopDTO.setPhoneNumber(shop.getPhoneNumber());
         basicShopDTO.setOpeningHours(shop.getOpeningHours());
+        basicShopDTO.setShopItems(itemMapper.itemEntityList2BasicDTOList(shop.getShopItems()));
         return basicShopDTO;
     }
 
