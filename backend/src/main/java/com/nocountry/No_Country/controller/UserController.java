@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("/location/{id}")
     public ResponseEntity<BasicLocationDTO> getLocationById(@PathVariable Long id){
-        return ResponseEntity.ok().body(this.locationService.getBasicLocationById(id));
+        return ResponseEntity.ok().body(this.locationService.getLocationById(id));
     }
 
     @PostMapping("{userId}/add/{itemId}")

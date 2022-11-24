@@ -12,7 +12,6 @@ public class BasicShopDTO {
     private Long phoneNumber;
     private Long locationId;
     private String imageUrl;
-
     private String openingHours;
 
 }

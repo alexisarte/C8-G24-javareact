@@ -58,4 +58,14 @@ public class ShopMapper {
         basicShopDTO.setOpeningHours(shop.getOpeningHours());
         return basicShopDTO;
     }
+
+    public List<BasicShopDTO> shopEntityList2BasicDTOList(List<Shop> shops){
+        List<BasicShopDTO> shopsDTOs = new ArrayList<>();
+
+        for(Shop shop : shops){
+            shopsDTOs.add(this.shopEntity2BasicDTO(shop));
+        }
+        return shopsDTOs;
+
+    }
 }

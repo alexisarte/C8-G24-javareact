@@ -1,5 +1,6 @@
 package com.nocountry.No_Country.mapper;
 
+import com.nocountry.No_Country.dtos.BasicUserDTO;
 import com.nocountry.No_Country.dtos.UserDTO;
 import com.nocountry.No_Country.entity.User;
 import com.nocountry.No_Country.repository.CartRepository;
@@ -52,5 +53,15 @@ public class UserMapper {
             userDTOS.add(this.userEntity2DTO(user));
         }
         return userDTOS;
+    }
+
+    public BasicUserDTO userEntity2BasicDTO(User user){
+        BasicUserDTO basicUserDTO = new BasicUserDTO();
+
+        basicUserDTO.setCartDTO(cartMapper.cartEntity2DTO(user.getCart()));
+        basicUserDTO.setFirstName(user.getFirstName());
+        basicUserDTO.setLastName(user.getLastName());
+        basicUserDTO.setLocationId(user.getLocation().getLocation_id());
+        return basicUserDTO;
     }
 }

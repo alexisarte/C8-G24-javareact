@@ -12,27 +12,32 @@ public class ShopController {
 
     @Autowired
     private ShopService shopService;
+
     //TODO Realizar primeros test para comprobar que la relaciones funcionan entre si.
 
     //TODO Comparar costos entre productos de una misma ciudad (Ale)
 
-    //TODO CRUD usuarios
+    //TODO CRUD location (Lean)
 
-    //TODO CRUD item (Leandro)
+    //TODO Resolver suma total carrito
 
-    //TODO CRUD shop (Leandro)
+    //TODO Resolver Stock de tienda
 
-    //TODO CRUD location
+    //TODO Ver bug de que se eliminan todos los productos con un mismo Id, en lugar de un producto a la vez
+
+    //---------------------------------------------------------------------------------//
+
+    //TODO documentar
+
+    //TODO Implementar roles
+
+    //TODO CRUD final de usuarios con roles y Auth.
 
     //TODO login
 
     //TODO CORS protocol.
 
     //TODO Crear DTOS en base a necesidades para evitar información no util.
-
-    //TODO Comparar costos entre productos de una misma ciudad
-
-    //TODO Ver bug de que se eliminan todos los productos con un mismo Id, en lugar de un producto a la vez
 
     @PostMapping("/add/{shopId}/{itemId}")
     public ResponseEntity<ShopDTO> addItem2Shop(@PathVariable Long itemId,

@@ -34,7 +34,7 @@ public class LocationMapper {
         BasicLocationDTO basicLocationDTO = new BasicLocationDTO();
         basicLocationDTO.setCity(location.getCity());
         basicLocationDTO.setState(location.getState());
-        basicLocationDTO.setShopList(shopMapper.shopEntityList2DTOList(location.getShops()));
+        basicLocationDTO.setShopList(shopMapper.shopEntityList2BasicDTOList(location.getShops()));
         return basicLocationDTO;
     }
 }

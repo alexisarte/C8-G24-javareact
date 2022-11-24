@@ -10,7 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class BasicLocationDTO {
-    private List<ShopDTO> shopList;
+    private List<BasicShopDTO> shopList;
     private String city;
     private String state;
 }
