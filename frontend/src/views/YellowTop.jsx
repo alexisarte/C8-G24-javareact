@@ -31,10 +31,6 @@ function YellowTop() {
             <div className='flex flex-row items-center gap-3 font-fontGafata'>
                 <SocialNetworks/>
             </div>      
-           <button  className='flex flex-row items-center font-fontGafata gap-3 max-lg:ml-4 max-md:ml-0 max-md:justify-content-center max-sm:mt-2 hover:bg-yellow-200 rounded px-2 py-2.5'>
-           <img src={user} alt="user" className="w-8"></img>
-             <p>MI CUENTA</p>
-           </button>
           <Account/>
         </div>
         <div className='flex flex-row justify-between mx-48 items-center max-lg:flex-wrap max-lg:mx-24 max-sm:mx-8 max-lg:justify-center'>
