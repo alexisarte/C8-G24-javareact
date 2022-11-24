@@ -5,7 +5,7 @@ function Dogs() {
   const { product } = useParams();
   return (
     <div>
-      <h1>Componente Dogs</h1>
+      <h1>Products</h1>
       <p>{product.slice(1)}</p>
       <Filters />
     </div>

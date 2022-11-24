@@ -28,12 +28,12 @@ const NavBar = () => {
         nav.classList.toggle("hidden");
       }}
     >
-      <div className="menu hidden flex-col justify-center absolute left-0 mt-9 md:m-0  w-1/2 h-screen z-10 bg-teal-600 pt-40 pl-7 md:bg-teal-200 md:static md:h-full md:flex md:flex-row md:justify-around md:w-full md:p-0 -translate-x-[110%] transition-all duration-[300ms] ease-in-out">
+      <div className="menu hidden flex-col justify-center absolute left-0 mt-9 md:m-0  w-1/2 h-screen z-10 bg-teal-600 pt-40 pl-7 md:bg-teal-200 md:static md:h-full md:flex md:flex-row md:justify-around md:w-full md:p-0">
         <DropdownButton title="perros" products={petProducts} path="/dogs" />
-        <DropdownButton title="gatos" products={petProducts} />
-        <DropdownButton title="otros" products={others} />
-        <DropdownButton title="promociones" products={promotions} />
-        <DropdownButton title="servicios" products={services} />
+        <DropdownButton title="gatos" products={petProducts} path="/cats" />
+        <DropdownButton title="otros" products={others} path="/others" />
+        <DropdownButton title="promociones" products={promotions} path="/promotions"/>
+        <DropdownButton title="servicios" products={services} path="/services"/>
       </div>
       <div className="flex md:hidden ">
         <div className="bars">
