@@ -29,6 +29,7 @@ public class ShopMapper {
         dto.setPhoneNumber(shop.getPhoneNumber());
         dto.setImageUrl(shop.getImageUrl());
         dto.setShopItems(itemMapper.itemEntityList2DTOList(shop.getShopItems()));
+        dto.setStreetName(shop.getStreetName());
         return dto;
     }
 
@@ -50,6 +51,7 @@ public class ShopMapper {
                 .orElseThrow(
                         ()->new RuntimeException("Location not found")));
         shop.setOpeningHours(dto.getOpeningHours());
+        shop.setStreetName(dto.getStreetName());
         return shop;
     }
 
@@ -60,6 +62,7 @@ public class ShopMapper {
         basicShopDTO.setPhoneNumber(shop.getPhoneNumber());
         basicShopDTO.setOpeningHours(shop.getOpeningHours());
         basicShopDTO.setShopItems(itemMapper.itemEntityList2BasicDTOList(shop.getShopItems()));
+        basicShopDTO.setStreetName(shop.getStreetName());
         return basicShopDTO;
     }
 

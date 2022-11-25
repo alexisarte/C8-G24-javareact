@@ -29,4 +29,6 @@ public class ShopDTO {
 
     private String openingHours;
 
+    private String streetName;
+
 }

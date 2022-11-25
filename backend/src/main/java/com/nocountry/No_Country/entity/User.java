@@ -25,6 +25,8 @@ public class User {
     @NotNull
     private String lastName;
     @NotNull
+    private String streetName;
+    @NotNull
     @Email
     private String email;
     @NotNull @Min(0)@Max(8)

@@ -28,7 +28,7 @@ public class Shop {
     private String email;
     @NotNull
     private String password;
-
+    private String streetName;
     private String imageUrl;
     private String openingHours;
     private Double shipping;

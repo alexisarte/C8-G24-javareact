@@ -11,4 +11,5 @@ public interface UserService {
     String deleteUser(Long userId);
     BasicUserDTO getUserById(Long userId);
     UserDTO createProvisionalUser(UserDTO userDTO);
+    List<String> getItemsNearMe(Long userId, Long itemId);
 }

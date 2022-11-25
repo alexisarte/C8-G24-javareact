@@ -22,7 +22,9 @@ public class UserDTO {
 
     private CartDTO cartDTO;
 
+    private String streetName;
 
-    public UserDTO(Long id, String password, Long id1, String email, String firstName, String lastName, Long location_id) {
+
+    public UserDTO(Long id, String password, Long id1, String email, String firstName, String lastName, Long locationId) {
     }
 }

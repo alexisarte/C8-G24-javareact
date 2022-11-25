@@ -3,13 +3,11 @@ package com.nocountry.No_Country.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -20,8 +18,7 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long location_id;
-    @NotNull
-    private String streetName;
+
     @NotNull
     private String city;
     @NotNull

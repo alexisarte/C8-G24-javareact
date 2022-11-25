@@ -13,6 +13,7 @@ public class BasicShopDTO {
     private String name;
     private Long phoneNumber;
     private String city;
+    private String streetName;
     private String imageUrl;
     private String openingHours;
     private List<BasicItemDTO> shopItems;

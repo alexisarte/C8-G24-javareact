@@ -31,6 +31,7 @@ public class UserMapper {
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
         dto.setLocationId(locationMapper.locationEntity2DTO(user.getLocation()));
+        dto.setStreetName(user.getStreetName());
         return dto;
 
     }
@@ -42,6 +43,7 @@ public class UserMapper {
         user.setLastName(dto.getLastName());
         user.setLocation(locationMapper.locationDTO2Entity(dto.getLocationId()));
         user.setCart(cartRepository.findById(dto.getCartDTO().getId()).orElseThrow());
+        user.setStreetName(dto.getStreetName());
         return user;
     }
 
