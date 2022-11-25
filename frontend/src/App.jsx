@@ -1,8 +1,9 @@
 import { useState , useEffect } from 'react';
 import Home from './views/Home';
 import { Routes, Route } from 'react-router-dom';
-import YellowTop from "./views/YellowTop";
-import { Onboarding } from './views/Onboarding';
+
+import YellowTop from './views/YellowBar/YellowTop';
+import { Onboarding } from './views/Onboarding/Onboarding';
 import Dogs from './views/navBar/Products';
 
 function App() {

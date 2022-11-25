@@ -9,5 +9,17 @@
     box-sizing: border-box;
 }
 
+/*The z-index is for navbar*/
 
+#zindexFixFirst div{
+    z-index: 25;
+}
+
+#zindexFixFirst div:nth-child(2){
+    z-index: 35;
+}
+
+#zindex div{
+    z-index: 20;
+}
 

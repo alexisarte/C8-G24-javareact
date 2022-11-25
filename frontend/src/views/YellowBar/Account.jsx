@@ -1,5 +1,5 @@
 import { Dropdown } from "flowbite-react";
-import { Avatar } from "flowbite-react";
+import { Avatar, Label, TextInput, Checkbox, Button } from "flowbite-react";
 import user from "../../assets/vectors/user.svg";
 
 const Account = () => {
@@ -8,30 +8,44 @@ const Account = () => {
       <Dropdown
         label={
           <>
-            <Avatar
-              alt="User settings"
-              img={user}
-              rounded={true}
-              title="dsds"
-            />
+            <Avatar alt="User settings" img={user} rounded={true} />
             <div>
-              <p>HOLA</p>
-            </div>{" "}
+              <p>MI CUENTA</p>
+            </div>
           </>
         }
         class=" hover:bg-yellow-200 rounded"
       >
         <Dropdown.Header>
-          <span className="block text-sm">Bonnie Green</span>
+          <span className="block text-sm">Conectarme a mi cuenta</span>
           <span className="block text-sm font-medium truncate">
-            bonnie@flowbite.com
+            Ingresa tu e-mail y tu contraseña
           </span>
         </Dropdown.Header>
-        <Dropdown.Item>Dashboard</Dropdown.Item>
-        <Dropdown.Item>Settings</Dropdown.Item>
-        <Dropdown.Item>Earnings</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item>Sign out</Dropdown.Item>
+        <form className="flex flex-col gap-4 mx-4">
+          <div>
+           
+            <TextInput
+              id="email1"
+              type="email"
+              placeholder="E-Mail"
+              required={true}
+            />
+          </div>
+          <div>
+           
+            <TextInput id="password1" type="password" placeholder="Contraseña" required={true} />
+          </div>
+          <div className="flex items-center gap-2">
+            <Checkbox id="remember" />
+            <Label htmlFor="remember">Remember me</Label>
+          </div>
+          <Button type="submit" color="dark">ENTRAR</Button>
+          <span className="block text-sm">¿Nuevo cliente? <span>Crear cuenta</span></span>
+          <span className="block text-sm font-medium truncate">
+            ¿Olvidaste tu contraseña? <span>Recuperar contraseña</span> 
+          </span>
+        </form>
       </Dropdown>
     </>
   );
