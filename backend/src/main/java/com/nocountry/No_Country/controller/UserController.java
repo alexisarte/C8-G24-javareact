@@ -1,9 +1,6 @@
 package com.nocountry.No_Country.controller;
 
-import com.nocountry.No_Country.dtos.BasicLocationDTO;
-import com.nocountry.No_Country.dtos.BasicUserDTO;
-import com.nocountry.No_Country.dtos.CartDTO;
-import com.nocountry.No_Country.dtos.UserDTO;
+import com.nocountry.No_Country.dtos.*;
 import com.nocountry.No_Country.service.CartService;
 import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.UserService;
@@ -48,13 +45,18 @@ public class UserController {
 
 
     @DeleteMapping("/{userId}/delete/{itemId}")
-    public ResponseEntity<CartDTO> removeItemFromCart(@PathVariable Long userId,
-                                                @PathVariable Long itemId){
-        return ResponseEntity.ok().body(this.cartService.removeItemFromCart(userId,itemId));
+    public ResponseEntity<List<BasicItemDTO>> removeItemFromCart(@PathVariable Long userId,
+                                                                 @PathVariable Long itemId){
+        return ResponseEntity.ok().body(this.cartService.deleteOneItem(userId,itemId));
     }
 
     @GetMapping("/{userId}")
     public ResponseEntity<BasicUserDTO> getUserById(@PathVariable Long userId){
         return ResponseEntity.ok().body(userService.getUserById(userId));
+    }
+
+    @GetMapping("{userId}/cart/resume")
+    public ResponseEntity<List<String>> getCartResume(@PathVariable Long userId){
+        return ResponseEntity.ok().body(cartService.seeCartResume(userId));
     }
 }
