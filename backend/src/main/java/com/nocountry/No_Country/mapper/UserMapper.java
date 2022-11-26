@@ -4,6 +4,7 @@ import com.nocountry.No_Country.dtos.BasicUserDTO;
 import com.nocountry.No_Country.dtos.UserDTO;
 import com.nocountry.No_Country.entity.User;
 import com.nocountry.No_Country.repository.CartRepository;
+import com.nocountry.No_Country.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,21 +17,23 @@ public class UserMapper {
     private final CartRepository cartRepository;
     private final LocationMapper locationMapper;
     private final CartMapper cartMapper;
+    private final LocationRepository locationRepository;
     @Autowired
-    public UserMapper(CartRepository cartRepository, LocationMapper locationMapper, CartMapper cartMapper) {
+    public UserMapper(CartRepository cartRepository,LocationRepository locationRepository ,LocationMapper locationMapper, CartMapper cartMapper) {
         this.cartRepository = cartRepository;
         this.locationMapper = locationMapper;
         this.cartMapper = cartMapper;
+        this.locationRepository = locationRepository;
     }
 
     public UserDTO userEntity2DTO(User user){
         UserDTO dto = new UserDTO();
         dto.setId(user.getId());
         dto.setEmail(user.getEmail());
-        dto.setCartDTO(cartMapper.cartEntity2DTO(user.getCart()));
+       // dto.setCartDTO(cartMapper.cartEntity2DTO(user.getCart()));
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
-        dto.setLocationId(locationMapper.locationEntity2DTO(user.getLocation()));
+        dto.setLocationId(user.getLocation().getLocation_id());
         dto.setStreetName(user.getStreetName());
         return dto;
 
@@ -41,8 +44,10 @@ public class UserMapper {
         user.setEmail(dto.getEmail());
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
-        user.setLocation(locationMapper.locationDTO2Entity(dto.getLocationId()));
-        user.setCart(cartRepository.findById(dto.getCartDTO().getId()).orElseThrow());
+        user.setLocation(locationRepository.findById(dto.getLocationId())
+                .orElseThrow(
+                        ()-> new RuntimeException("Location not found")));
+        //user.setCart(cartRepository.findById(dto.getCartDTO().getId()).orElseThrow());
         user.setStreetName(dto.getStreetName());
         return user;
     }

@@ -6,6 +6,8 @@ import com.nocountry.No_Country.entity.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class CartMapper {
     private final ItemMapper itemMapper;
@@ -27,12 +29,13 @@ public class CartMapper {
     }
     public BasicCartDTO cartEntity2BasicDTO(Cart cart){
         BasicCartDTO cartDTO = new BasicCartDTO();
-
-        cartDTO.setItems(itemMapper.itemEntityList2BasicDTOList(cart.getItems()));
+        cartDTO.setItems(itemMapper.itemList2Resume(cart.getItems()));
         cartDTO.setUser(cart.getUser().getId());
         cartDTO.setTotalAmount(cart.getTotalAmount());
         return cartDTO;
     }
+
+
 
 
 }

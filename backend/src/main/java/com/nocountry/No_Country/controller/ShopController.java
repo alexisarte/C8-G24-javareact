@@ -1,11 +1,11 @@
 package com.nocountry.No_Country.controller;
 
-import com.nocountry.No_Country.dtos.BasicShopDTO;
-import com.nocountry.No_Country.dtos.ItemDTO;
-import com.nocountry.No_Country.dtos.ShopDTO;
+import com.nocountry.No_Country.dtos.*;
 import com.nocountry.No_Country.service.ItemService;
+import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +15,8 @@ public class ShopController {
 
     private final ShopService shopService;
     private final ItemService itemService;
+    @Autowired
+    private LocationService locationService;
 
     @Autowired
     public ShopController(ShopService shopService, ItemService itemService) {
@@ -22,19 +24,9 @@ public class ShopController {
         this.itemService = itemService;
     }
 
-    //TODO Realizar primeros test para comprobar que la relaciones funcionan entre si.
-
-    //TODO Comparar costos entre productos de una misma ciudad (Ale)
-
     //TODO crear entidad transaccion (Monto total, items, costo envio, direccion shop, direccion usuario)
 
-    //TODO Resolver suma total carrito
-
     //TODO Resolver precio para cada item segun shop.
-
-    //TODO Resolver Stock de tienda
-
-    //TODO Ver bug de que se eliminan todos los productos con un mismo Id, en lugar de un producto a la vez
 
     //---------------------------------------------------------------------------------//
 
@@ -63,13 +55,15 @@ public class ShopController {
     }
 
     @GetMapping("/{shopId}")
-        public ResponseEntity<BasicShopDTO> getShopById(@PathVariable Long shopId){
-            return ResponseEntity.ok().body(shopService.getShopById(shopId));
-        }
+    public ResponseEntity<BasicShopDTO> getShopById(@PathVariable Long shopId){
 
-    @PostMapping
-        public ResponseEntity<ShopDTO> createShop(@RequestBody ShopDTO dto){
-        return ResponseEntity.ok().body(shopService.createShop(dto));
+        return ResponseEntity.ok().body(shopService.getShopById(shopId));
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<ShopDTO> createShop(@RequestBody ShopDTO dto){
+        ShopDTO shopCreated = shopService.createShop(dto);
+        return new ResponseEntity<>(shopCreated, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete/{shopId}")
@@ -80,6 +74,14 @@ public class ShopController {
     @PostMapping("item/create")
     public ResponseEntity<ItemDTO> createItem(@RequestBody ItemDTO dto){
         return ResponseEntity.ok().body(itemService.createItem(dto));
+    }
+
+    @PostMapping("/location/create")
+    public ResponseEntity<LocationDTO> createLocation(@RequestBody LocationDTO dto){
+
+        LocationDTO location = locationService.createLocation(dto);
+        return new ResponseEntity<>(location,HttpStatus.CREATED);
+
     }
 
 }

@@ -30,6 +30,7 @@ public class ShopMapper {
         dto.setImageUrl(shop.getImageUrl());
         dto.setShopItems(itemMapper.itemEntityList2DTOList(shop.getShopItems()));
         dto.setStreetName(shop.getStreetName());
+        dto.setOpeningHours(shop.getOpeningHours());
         return dto;
     }
 
@@ -52,6 +53,7 @@ public class ShopMapper {
                         ()->new RuntimeException("Location not found")));
         shop.setOpeningHours(dto.getOpeningHours());
         shop.setStreetName(dto.getStreetName());
+        shop.setPassword(dto.getPassword());
         return shop;
     }
 

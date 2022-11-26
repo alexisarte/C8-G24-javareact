@@ -2,11 +2,9 @@ package com.nocountry.No_Country.service.serviceImpl;
 
 import com.nocountry.No_Country.dtos.BasicUserDTO;
 import com.nocountry.No_Country.dtos.UserDTO;
-import com.nocountry.No_Country.entity.Item;
-import com.nocountry.No_Country.entity.Location;
-import com.nocountry.No_Country.entity.Shop;
-import com.nocountry.No_Country.entity.User;
+import com.nocountry.No_Country.entity.*;
 import com.nocountry.No_Country.mapper.UserMapper;
+import com.nocountry.No_Country.repository.CartRepository;
 import com.nocountry.No_Country.repository.UserRepository;
 import com.nocountry.No_Country.service.CartService;
 import com.nocountry.No_Country.service.UserService;
@@ -22,6 +20,8 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper  userMapper;
     private final CartService cartService;
+    @Autowired
+    private CartRepository cartRepository;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository,CartService cartService ,UserMapper userMapper) {
@@ -42,12 +42,13 @@ public class UserServiceImpl implements UserService {
         if (userRepository.findByEmail(userDTO.getEmail()) == null){
 
             User user = userMapper.userDTO2Entity(userDTO);
-        User userSaved = userRepository.save(user);
-        userSaved.setCart(cartService.createCartForNewUser(userSaved.getId()));
 
-        return userMapper.userEntity2DTO(userSaved);
+            User userSaved = userRepository.save(user);
+
+            return userMapper.userEntity2DTO(userSaved);
         }
-        else{ throw new RuntimeException("User with this email already exists.");
+        else {
+            throw new RuntimeException("User with this email already exists.");
         }
     }
 
@@ -57,6 +58,7 @@ public class UserServiceImpl implements UserService {
                 ()-> new RuntimeException("Can't delete. User not found"));
 
         userRepository.delete(user);
+
 
         return("User: "+ user.getFirstName() + user.getLastName() +" has been deleted" );
     }
@@ -85,8 +87,8 @@ public class UserServiceImpl implements UserService {
 
             for (Item item : shopItems) {
                 if (Objects.equals(item.getId(), itemId)) {
-                    result.add(item.getName()
-                            + "available in shop "
+                    result.add(item.getName() + (item.getPrice().toString())
+                            + " available in shop "
                             + shop.getName()
                             + " located in: "
                             + shop.getStreetName());

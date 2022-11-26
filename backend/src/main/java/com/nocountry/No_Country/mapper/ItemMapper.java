@@ -1,6 +1,7 @@
 package com.nocountry.No_Country.mapper;
 
 import com.nocountry.No_Country.dtos.BasicItemDTO;
+import com.nocountry.No_Country.dtos.CartResumeDTO;
 import com.nocountry.No_Country.dtos.ItemDTO;
 import com.nocountry.No_Country.entity.Item;
 import org.springframework.stereotype.Component;
@@ -55,5 +56,19 @@ public class ItemMapper {
         }
         return basicItems;
 
+    }
+
+    public CartResumeDTO item2CartResume(Item item){
+        CartResumeDTO cartResumeDTO = new CartResumeDTO();
+        cartResumeDTO.setName(item.getName());
+        return cartResumeDTO;
+    }
+
+    public List<CartResumeDTO> itemList2Resume(List<Item> items){
+        List<CartResumeDTO> cartResumeDTOS = new ArrayList<>();
+        for(Item item: items){
+            cartResumeDTOS.add(this.item2CartResume(item));
+        }
+        return cartResumeDTOS;
     }
 }

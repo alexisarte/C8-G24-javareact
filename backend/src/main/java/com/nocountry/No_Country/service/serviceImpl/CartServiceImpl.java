@@ -55,15 +55,18 @@ public class CartServiceImpl implements CartService {
 
     public Cart createCartForNewUser(Long userId){
         Cart cart = new Cart();
-        cart.setUser(userRepository.findById(userId).orElseThrow(
-                ()-> new RuntimeException("User not found")));
+        cartRepository.save(cart);
+        User user = userRepository.findById(userId).orElseThrow(
+                ()-> new RuntimeException("User not found"));
+        cart.setUser(user);
+        userRepository.save(user);
         return cart;
     }
 
-    public Double getCartAmmount(BasicCartDTO dto){
-        List<BasicItemDTO> items = dto.getItems();
+    public Double getCartAmount(Cart cart){
+        List<Item> items = cart.getItems();
         Double cont = 0.0;
-        for(BasicItemDTO item : items){
+        for(Item item : items){
             cont += item.getPrice();
         }
         return cont;
@@ -87,25 +90,33 @@ public class CartServiceImpl implements CartService {
         return itemMapper.itemEntityList2BasicDTOList(cart);
     }
     
-    public List<String> seeCartResume(Long userId){
+    public BasicCartDTO seeCartResume(Long userId){
 
-        List<String> resumeArray = new ArrayList<>();  //Array for add items.
+        BasicCartDTO basicCartDTO = new BasicCartDTO();
+
+        List<CartResumeDTO> resumeArray = new ArrayList<>();  //Array for add items.
         
         User user = userRepository.findById(userId).orElseThrow(
                 ()-> new RuntimeException("User not found"));
 
         List<Item> cart = user.getCart().getItems();
+
         cart.sort(Comparator.comparing(Item::getId));  //check how many times these items are duplicated.
 
         for (Item item : cart) {
-            resumeArray.add(item.getName() + " stock : " + Collections.frequency(cart,item));
+            CartResumeDTO cartResumeDTO = new CartResumeDTO();
+            cartResumeDTO.setName(item.getName());
+            cartResumeDTO.setStock(Collections.frequency(cart,item));
+            resumeArray.add(cartResumeDTO);
         }
 
-        List<String> resume = new ArrayList<>(new HashSet<>(resumeArray)); //Remove duplicated strings
+        List<CartResumeDTO> resume = new ArrayList<>(new HashSet<>(resumeArray)); //Remove duplicated strings
 
-        resumeArray.add("Subtotal: "+ this.getCartAmmount(
-                cartMapper.cartEntity2BasicDTO(user.getCart())).toString());
+        basicCartDTO.setUser(user.getId());
+        basicCartDTO.setItems(resume);
+        basicCartDTO.setTotalAmount(this.getCartAmount(user.getCart()));
 
-        return resume;
+
+        return basicCartDTO;
     }
 }

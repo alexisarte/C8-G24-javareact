@@ -5,8 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,15 +18,14 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long location_id;
 
-    @NotNull
+
     private String city;
-    @NotNull
     private String state;
 
-    @NotNull
+
     @OneToMany(mappedBy = "location")
     private List<User> users;
 
     @OneToMany(mappedBy = "location")
-    private List<Shop> shops;
+    private List<Shop> shops = new ArrayList<>();
 }

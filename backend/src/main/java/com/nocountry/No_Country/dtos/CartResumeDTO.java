@@ -11,4 +11,5 @@ public class CartResumeDTO {
 
     private String name;
     private int stock;
+
 }

@@ -11,7 +11,7 @@ public interface CartService {
 
     CartDTO addItem2Cart(Long cartId, Long itemId);
     Cart createCartForNewUser(Long userId);
-    Double getCartAmmount(BasicCartDTO dto);
-    List<String> seeCartResume(Long userId);
+    Double getCartAmount(Cart cart);
+    BasicCartDTO seeCartResume(Long userId);
     List<BasicItemDTO> deleteOneItem(Long userId, Long itemId);
 }

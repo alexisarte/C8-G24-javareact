@@ -18,7 +18,7 @@ public class UserDTO {
 
     private String password;
 
-    private LocationDTO locationId;
+    private Long locationId;
 
     private CartDTO cartDTO;
 

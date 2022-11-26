@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -17,16 +16,16 @@ import java.util.Objects;
 @Table(name="shop")
 public class Shop {
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+
     private String name;
-    @NotNull
+
     private Long phoneNumber;
-    @NotNull
+
     private String email;
-    @NotNull
+
     private String password;
     private String streetName;
     private String imageUrl;
