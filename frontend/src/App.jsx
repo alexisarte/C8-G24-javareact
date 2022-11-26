@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import YellowTop from './views/YellowBar/YellowTop';
 import { Onboarding } from './views/Onboarding/Onboarding';
 import Dogs from './views/navBar/Products';
+import Footers from './views/Footer/Footer';
 
 function App() {
   const [load, setLoad] = useState(true)
@@ -33,6 +34,7 @@ function App() {
         <Route path="/promotions/:product" element={<Dogs />}></Route>
         <Route path="/services/:product" element={<Dogs />}></Route>
       </Routes>
+      <Footers/>
     </div>
   );
     }

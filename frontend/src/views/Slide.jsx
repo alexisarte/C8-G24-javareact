@@ -1,47 +1,31 @@
-import { useState } from "react"
-import { ArrowLeft } from "./slideBar/ArrowLeft"
-import { ArrowRight } from "./slideBar/ArrowRight"
+import { Carousel } from "flowbite-react";
 
-export const Slide = ({ slides = [] }) => {
-
-    const [index, setIndex] = useState(0)
-
-    const handleClickNext = (value) => {
-        if (value == 'left') {
-            setIndex(index + 1)
-            if (index == 1) return setIndex(0)
-        }
-        if (value == 'right') {
-            setIndex(index - 1)
-            if (index == 0) return setIndex(1)
-        }
-    }
-
-    return (
-        <div className="flex relative" style={{ backgroundColor: `${slides[index].bg}` }}>
-            <div onClick={() => handleClickNext('left')} className='flex justify-center flex-col'>
-                <ArrowLeft />
+export const Slide = ({slides}) => { 
+  return (
+    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+      <Carousel id="carrousel">
+        {slides.map((slide) => {
+          return (
+            <div className={`flex h-full  dark:bg-gray-700 dark:text-white`} style={{backgroundColor: slide.bg}} key={slide.id}>
+              <div className="flex justify-center items-center w-1/3 ">
+                <p className="text-8xl max-md:text-4xl max-xl:text-6xl font-fontGotu ">
+                  {slide.descuento}
+                </p>
+              </div>
+              <div className="flex flex-col justify-center items-center w-2/3 font-fontGotu">
+                <p className="text-3xl max-md:text-lg ">{slide.titulo1}</p>
+                <p className="text-7xl max-xl:text-5xl max-md:text-3xl max-md:my-4 my-8 ">
+                  {slide.titulo2}
+                </p>
+                <p className="text-3xl max-md:text-lg ">{slide.titulo3}</p>
+              </div>
+              <div className="w-1/3 flex">
+                <img src={slide.url} alt="imagen mascota" />
+              </div>
             </div>
-
-            <strong className="flex-1 flex flex-col justify-center items-center h-96 text-9xl">
-                {slides[index].descuento}
-            </strong>
-
-            <div className="flex-1">
-                <div className="flex flex-col justify-between items-center h-96">
-                    <span className="text-3xl pt-10">{slides[index].titulo1}</span>
-                    <strong className="text-6xl py-8 text-center">{slides[index].titulo2}</strong>
-                    <span className="text-3xl pb-10">{slides[index].titulo3}</span>
-                </div>
-            </div>
-
-            <div className="flex-1">
-                <img className="h-full" src={slides[index].url} alt="" />
-            </div>
-
-            <div onClick={() => handleClickNext('right')} className='flex flex-col justify-center'>
-                <ArrowRight />
-            </div>
-        </div>
-    )
-}
+          );
+        })}
+      </Carousel>
+    </div>
+  );
+};
