@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <section className=" font-new">
+    <section className="md:text-6xl font-new">
       <p className="uppercase text-blue-600 p-4">en <span className="text-yellow-400">kai pet</span> te contactamos con los mejores centros veterinarios, cercanos a tu domicilio.</p>
       <div className="flex h-96  bg-blue-400">
         <ul className="flex flex-col justify-between w-3/4 list-inside list-disc uppercase p-6">

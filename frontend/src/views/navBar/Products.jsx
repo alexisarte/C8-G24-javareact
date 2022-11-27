@@ -1,15 +1,12 @@
-import { useParams } from "react-router-dom";
 import Filters from "./Filters";
 
-function Dogs() {
-  const { product } = useParams();
+function Products() {
   return (
-    <div>
+    <div className="m-11">
       <h1>Products</h1>
-      <p>{product.slice(1)}</p>
       <Filters />
     </div>
   );
 }
 
-export default Dogs;
+export default Products;
