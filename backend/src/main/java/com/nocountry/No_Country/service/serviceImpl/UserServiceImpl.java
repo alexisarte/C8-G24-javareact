@@ -54,11 +54,15 @@ public class UserServiceImpl implements UserService {
 
     public String deleteUser(Long userId){
 
-        User user = userRepository.findById(userId).orElseThrow(
-                ()-> new RuntimeException("Can't delete. User not found"));
+        User user = userRepository.findById(userId)
+                .orElseThrow(
+                        ()-> new RuntimeException("Can't delete. User not found"));
+        Cart cart = cartRepository.findById(user.getCart().getId())
+                .orElseThrow(
+                        ()-> new RuntimeException("Cart not found"));
 
         userRepository.delete(user);
-
+        cartRepository.delete(cart);
 
         return("User: "+ user.getFirstName() + user.getLastName() +" has been deleted" );
     }

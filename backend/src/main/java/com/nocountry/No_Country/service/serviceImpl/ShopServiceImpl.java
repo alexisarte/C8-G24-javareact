@@ -1,9 +1,12 @@
 package com.nocountry.No_Country.service.serviceImpl;
 
+import com.nocountry.No_Country.dtos.BasicItemDTO;
 import com.nocountry.No_Country.dtos.BasicShopDTO;
 import com.nocountry.No_Country.dtos.ShopDTO;
+import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.entity.Item;
 import com.nocountry.No_Country.entity.Shop;
+import com.nocountry.No_Country.mapper.ItemMapper;
 import com.nocountry.No_Country.mapper.ShopMapper;
 import com.nocountry.No_Country.repository.ItemRepository;
 import com.nocountry.No_Country.repository.ShopRepository;
@@ -11,11 +14,17 @@ import com.nocountry.No_Country.service.ShopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ShopServiceImpl implements ShopService {
     private final ShopRepository shopRepository;
     private final ItemRepository itemRepository;
     private final ShopMapper shopMapper;
+
+    @Autowired
+    private ItemMapper itemMapper;
     @Autowired
     public ShopServiceImpl(ShopRepository shopRepository, ItemRepository itemRepository, ShopMapper shopMapper) {
         this.shopRepository = shopRepository;
@@ -26,7 +35,7 @@ public class ShopServiceImpl implements ShopService {
     public ShopDTO addItem2Shop(Long shopId, Long itemId){
 
         Shop shop = shopRepository.findById(shopId).orElseThrow(
-                ()-> new RuntimeException("Shop not found"));
+                ()-> new RuntimeException("Can't add item. Shop not found"));
 
         Item item = itemRepository.findById(itemId).orElseThrow(
                 ()-> new RuntimeException("Item not found"));
@@ -75,7 +84,25 @@ public class ShopServiceImpl implements ShopService {
         return shopMapper.shopEntity2BasicDTO(shop);
     }
 
+    public List<BasicItemDTO> getShopItemsByCategory(Long shopId, CategoryEnum category){
 
+
+        List<Item> itemsByCategory = new ArrayList<>();
+
+        Shop shop = shopRepository.findById(shopId).orElseThrow(
+                ()-> new RuntimeException("Shop not found"));
+
+        List<Item> shopItems = shop.getShopItems();
+
+        for(Item item : shopItems){
+            if(item.getCategory() == category){
+                itemsByCategory.add(item);
+            }
+        }
+
+        return itemMapper.itemEntityList2BasicDTOList(itemsByCategory);
+
+    }
 
 
 }

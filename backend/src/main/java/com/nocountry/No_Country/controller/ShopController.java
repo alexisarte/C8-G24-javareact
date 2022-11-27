@@ -1,6 +1,7 @@
 package com.nocountry.No_Country.controller;
 
 import com.nocountry.No_Country.dtos.*;
+import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.service.ItemService;
 import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.ShopService;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/shop")
@@ -82,6 +85,14 @@ public class ShopController {
         LocationDTO location = locationService.createLocation(dto);
         return new ResponseEntity<>(location,HttpStatus.CREATED);
 
+    }
+
+    @GetMapping("{shopId}/get/{category}")
+    public ResponseEntity<List<BasicItemDTO>> filterShopItemsByCategory(@PathVariable Long shopId,
+                                                                        @PathVariable CategoryEnum category){
+        List<BasicItemDTO> shopItemsByCategory = shopService.getShopItemsByCategory(shopId,category);
+
+        return new ResponseEntity<>(shopItemsByCategory, HttpStatus.OK);
     }
 
 }
