@@ -1,42 +1,35 @@
-import { Footer } from "flowbite-react"
+import { Footer } from "flowbite-react";
+import SocialNetworks from "../YellowBar/SocialNetworks";
 
-const Footers = () =>{
-    return(
-        <>
-        <Footer container={true} >
-  <div className="w-full text-center ">
-    <div className="w-full justify-between sm:flex sm:items-center sm:justify-between ">
-      <Footer.Brand
-        href="https://flowbite.com"
-        src="https://flowbite.com/docs/images/logo.svg"
-        alt="Flowbite Logo"
-        name="Flowbite"
-      />
-      <Footer.LinkGroup>
-        <Footer.Link href="#">
-          About
-        </Footer.Link>
-        <Footer.Link href="#">
-          Privacy Policy
-        </Footer.Link>
-        <Footer.Link href="#">
-          Licensing
-        </Footer.Link>
-        <Footer.Link href="#">
-          Contact
-        </Footer.Link>
-      </Footer.LinkGroup>
-    </div>
-    <Footer.Divider />
-    <Footer.Copyright
-      href="#"
-      by="Flowbite™"
-      year={2022}
-    />
-  </div>
-</Footer>
-        </>
-    )
-}
+const Footers = () => {
+  return (
+    <>
+      <Footer container={true} className="rounded-none">
+        <div className="w-full text-center">
+          <div className="w-full justify-between flex items-center">
+            <a href="" className="flex flex-row">
+              <div className="flex flex-col justify-end mb-2 text-black font-logoFont gap-2 mr-44 max-lg:mr-0">
+                <p className="text-4xl">KAI</p>
+                <p className="text-4xl">PET</p>
+              </div>
+            </a>
+            <Footer.LinkGroup className="gap-1 font-fontGotu">
+              <Footer.Link href="#">Perros</Footer.Link>
+              <Footer.Link href="#">Gatos</Footer.Link>
+              <Footer.Link href="#">Otros</Footer.Link>
+            </Footer.LinkGroup>
+          </div>
+          <Footer.Divider />
+          <div className="w-full sm:justify-between flex max-sm:flex-col-reverse max-sm:items-center max-sm:gap-5">
+            <Footer.Copyright href="#" by="KAIPET™" year={2022} />
+            <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+              <SocialNetworks />
+            </div>
+          </div>
+        </div>
+      </Footer>
+    </>
+  );
+};
 
-export default Footers
+export default Footers;
