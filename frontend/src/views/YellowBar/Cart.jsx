@@ -73,14 +73,14 @@ const Cart = () => {
       >
         <Dropdown.Header>
           <span className="block text-lg font-semibold truncate">Carrito</span>
-          <span className="flex">
-            <div className="w-96">
+          <span className="flex max-sm:hidden">
+            <div className="sm:w-96 max-sm:w-36">
               <p>Productos</p>
             </div>
-            <div className="flex items-center w-28">
+            <div className="flex items-center sm:w-28 ">
               <p>Cantidad</p>
             </div>
-            <div className="inline-flex justify-end items-center text-base font-semibold text-gray-900 dark:text-white w-28">
+            <div className="inline-flex justify-end items-center text-base font-semibold text-gray-900 dark:text-white sm:w-28 max-sm:10">
               <p>Precio</p>
             </div>
           </span>
@@ -100,7 +100,7 @@ const Cart = () => {
                             alt="Neil image"
                           />
                         </div>
-                        <div className="w-72 flex-1">
+                        <div className="sm:w-72 flex-1">
                           <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
                             {products.product}
                           </p>
@@ -108,10 +108,10 @@ const Cart = () => {
                             {`${products.precio} + 500 de envío`}
                           </p>
                         </div>
-                        <div className="flex flex-col items-center w-28">
+                        <div className="flex flex-col items-center sm:w-28 ">
                           <p className="ml-5 mr-5">{products.cantidad}</p>
                         </div>
-                        <div className="inline-flex justify-end items-center text-base font-semibold text-gray-900 dark:text-white w-32">
+                        <div className="inline-flex justify-end items-center text-base font-semibold text-gray-900 dark:text-white sm:w-32">
                          $ {products.precio}
                         </div>
                       </div>

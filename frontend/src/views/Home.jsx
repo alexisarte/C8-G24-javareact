@@ -22,7 +22,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <Services />
+      {/* <Services /> */}
     </>
   );
 };
