@@ -19,6 +19,7 @@ public class ItemMapper {
         dto.setName(item.getName());
         dto.setPrice(item.getPrice());
         dto.setImageUrl(item.getImageUrl());
+        dto.setAnimal(item.getAnimal());
         return dto;
     }
 
@@ -36,6 +37,7 @@ public class ItemMapper {
         item.setCategory(dto.getCategory());
         item.setImageUrl(dto.getImageUrl());
         item.setPrice(dto.getPrice());
+        item.setAnimal(dto.getAnimal());
         return item;
     }
 

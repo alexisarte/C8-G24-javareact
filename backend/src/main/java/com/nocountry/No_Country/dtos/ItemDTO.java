@@ -1,5 +1,6 @@
 package com.nocountry.No_Country.dtos;
 
+import com.nocountry.No_Country.entity.AnimalEnum;
 import com.nocountry.No_Country.entity.CategoryEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ public class ItemDTO {
     private Double price;
     private Long stock;
     private CategoryEnum category;
+    private AnimalEnum animal;
     private String imageUrl;
 
 }

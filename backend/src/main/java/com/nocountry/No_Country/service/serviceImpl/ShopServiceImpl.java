@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -23,13 +24,13 @@ public class ShopServiceImpl implements ShopService {
     private final ItemRepository itemRepository;
     private final ShopMapper shopMapper;
 
+    private final ItemMapper itemMapper;
     @Autowired
-    private ItemMapper itemMapper;
-    @Autowired
-    public ShopServiceImpl(ShopRepository shopRepository, ItemRepository itemRepository, ShopMapper shopMapper) {
+    public ShopServiceImpl(ShopRepository shopRepository, ItemRepository itemRepository, ShopMapper shopMapper, ItemMapper itemMapper) {
         this.shopRepository = shopRepository;
         this.itemRepository = itemRepository;
         this.shopMapper = shopMapper;
+        this.itemMapper = itemMapper;
     }
 
     public ShopDTO addItem2Shop(Long shopId, Long itemId){
@@ -43,15 +44,6 @@ public class ShopServiceImpl implements ShopService {
         shop.addItem(item);
         shopRepository.save(shop);
 
-        return shopMapper.shopEntity2DTO(shop);
-    }
-
-    public ShopDTO removeItemFromShop(Long itemId, Long shopId){
-
-        Shop shop = shopRepository.findById(shopId).orElseThrow(()-> new RuntimeException("Shop not found"));
-
-        shop.deleteItem(itemId);
-        shopRepository.save(shop);
         return shopMapper.shopEntity2DTO(shop);
     }
 
@@ -76,6 +68,23 @@ public class ShopServiceImpl implements ShopService {
         shopRepository.delete(shop);
 
         return("Shop " + shop.getName() +" has been deleted");
+    }
+
+    public List<BasicItemDTO> deleteOneItemFromShop(Long shopId, Long itemId){
+
+        Shop shop = shopRepository.findById(shopId).orElseThrow(
+                ()-> new RuntimeException("User not found"));
+
+        List<Item> shopItems = shop.getShopItems();
+
+        for(Item item :shopItems){
+            if (Objects.equals(item.getId(), itemId)){
+                shopItems.remove(item);
+                break;
+            }
+        }
+        shopRepository.save(shop);
+        return itemMapper.itemEntityList2BasicDTOList(shopItems);
     }
 
     public BasicShopDTO getShopById(Long shopId){

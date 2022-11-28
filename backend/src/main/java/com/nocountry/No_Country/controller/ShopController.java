@@ -18,13 +18,13 @@ public class ShopController {
 
     private final ShopService shopService;
     private final ItemService itemService;
-    @Autowired
-    private LocationService locationService;
+    private final LocationService locationService;
 
     @Autowired
-    public ShopController(ShopService shopService, ItemService itemService) {
+    public ShopController(ShopService shopService, ItemService itemService, LocationService locationService) {
         this.shopService = shopService;
         this.itemService = itemService;
+        this.locationService = locationService;
     }
 
     //TODO crear entidad transaccion (Monto total, items, costo envio, direccion shop, direccion usuario)
@@ -45,16 +45,16 @@ public class ShopController {
 
     //TODO Crear DTOS en base a necesidades para evitar información no util.
 
-    @PostMapping("/add/{shopId}/{itemId}")
+    @PostMapping("/{shopId}/add/{itemId}")
     public ResponseEntity<ShopDTO> addItem2Shop(@PathVariable Long itemId,
                                                 @PathVariable Long shopId){
         return ResponseEntity.ok().body(shopService.addItem2Shop(shopId,itemId));
     }
 
-    @DeleteMapping("/delete/{shopId}/{itemId}")
-        public ResponseEntity<ShopDTO> deleteItemFromShop(@PathVariable Long itemId,
+    @DeleteMapping("/{shopId}/remove/{itemId}")
+        public ResponseEntity<List<BasicItemDTO>> deleteItemFromShop(@PathVariable Long itemId,
                                                          @PathVariable Long shopId){
-            return ResponseEntity.ok().body(shopService.removeItemFromShop(shopId,itemId));
+            return ResponseEntity.ok().body(shopService.deleteOneItemFromShop(shopId,itemId));
     }
 
     @GetMapping("/{shopId}")
@@ -87,7 +87,7 @@ public class ShopController {
 
     }
 
-    @GetMapping("{shopId}/get/{category}")
+    @GetMapping("{shopId}/filterBy/{category}")
     public ResponseEntity<List<BasicItemDTO>> filterShopItemsByCategory(@PathVariable Long shopId,
                                                                         @PathVariable CategoryEnum category){
         List<BasicItemDTO> shopItemsByCategory = shopService.getShopItemsByCategory(shopId,category);

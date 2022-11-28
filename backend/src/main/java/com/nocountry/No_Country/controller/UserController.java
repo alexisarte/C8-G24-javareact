@@ -1,7 +1,9 @@
 package com.nocountry.No_Country.controller;
 
 import com.nocountry.No_Country.dtos.*;
+import com.nocountry.No_Country.entity.AnimalEnum;
 import com.nocountry.No_Country.entity.Cart;
+import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.mapper.CartMapper;
 import com.nocountry.No_Country.service.CartService;
 import com.nocountry.No_Country.service.LocationService;
@@ -19,14 +21,14 @@ public class UserController {
     private final UserService userService;
     private final LocationService locationService;
     private final CartService cartService;
+    private final CartMapper cartMapper;
     @Autowired
-    private CartMapper cartMapper;
-    @Autowired
-    public UserController(UserService userService, LocationService locationService, CartService cartService) {
+    public UserController(UserService userService, LocationService locationService, CartService cartService, CartMapper cartMapper) {
 
         this.userService = userService;
         this.locationService = locationService;
         this.cartService = cartService;
+        this.cartMapper = cartMapper;
     }
 
 
@@ -49,7 +51,7 @@ public class UserController {
         }
 
 
-    @DeleteMapping("/{userId}/delete/{itemId}")
+    @DeleteMapping("/{userId}/remove/{itemId}")
     public ResponseEntity<List<BasicItemDTO>> removeItemFromCart(@PathVariable Long userId,
                                                                  @PathVariable Long itemId){
         return ResponseEntity.ok().body(this.cartService.deleteOneItem(userId,itemId));
@@ -60,7 +62,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getUserById(userId));
     }
 
-    @GetMapping("{userId}/cart/resume")
+    @GetMapping("{userId}/cartResume")
     public ResponseEntity<BasicCartDTO> getCartResume(@PathVariable Long userId){
         return ResponseEntity.ok().body(cartService.seeCartResume(userId));
     }
@@ -70,6 +72,16 @@ public class UserController {
                                                       @PathVariable Long itemId){
         return ResponseEntity.ok().body(userService.getItemsNearMe(userId, itemId));
     }
+
+    @GetMapping("/{locationId}/{animal}/{category}")
+        public ResponseEntity<List<BasicItemDTO>> getItemsOfCity(@PathVariable Long locationId,
+                                                                 @PathVariable AnimalEnum animal,
+                                                                 @PathVariable CategoryEnum category){
+        List<BasicItemDTO> itemsByParameters = locationService.getLocationItemsByCategoryOrAnimal(locationId,
+                animal, category);
+        return new ResponseEntity<>(itemsByParameters,HttpStatus.OK);
+        }
+
 
     @PostMapping("/create")
     public ResponseEntity<UserDTO> createUserBeta(@RequestBody UserDTO userDTO){
@@ -83,5 +95,7 @@ public class UserController {
         return new ResponseEntity<>(cart, HttpStatus.OK);
 
     }
+
+
 
 }

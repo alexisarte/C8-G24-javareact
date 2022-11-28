@@ -8,11 +8,11 @@ import com.nocountry.No_Country.entity.CategoryEnum;
 import java.util.List;
 
 public interface ShopService {
-    ShopDTO removeItemFromShop(Long itemId, Long shopId);
     ShopDTO addItem2Shop(Long shopId, Long itemId);
     ShopDTO createShop(ShopDTO dto);
     ShopDTO updateShop(ShopDTO dto);
     String deleteShop(Long shopId);
+    List<BasicItemDTO> deleteOneItemFromShop(Long shopId, Long itemId);
     BasicShopDTO getShopById(Long shopId);
     List<BasicItemDTO> getShopItemsByCategory(Long shopId, CategoryEnum category);
 }
