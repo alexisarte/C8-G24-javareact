@@ -1,4 +1,5 @@
-import Card from "./Card1";
+
+import Card from '../CardsItem/Card1'
 import { Breadcrumb } from "flowbite-react";
 import { useParams } from "react-router-dom";
 

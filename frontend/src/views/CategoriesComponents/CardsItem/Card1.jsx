@@ -1,5 +1,5 @@
 import { Card, Dropdown } from "flowbite-react";
-import DogFood from "../../assets/dog-food.jpg";
+import DogFood from "../../../assets/dog-food.jpg";
 
 const Card1 = ({data}) => {
   return (
