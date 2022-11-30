@@ -6,6 +6,7 @@ import UserRegistration from "../UserRegistration/UserRegistration";
 import UserLogged from "../UserLogged/UserLogged";
 const Account = () => {
   const [registerUser, setRegisterUser] = useState();
+
   useEffect(() => {
     setRegisterUser(true);
   }, []);
