@@ -24,26 +24,38 @@ function App() {
   //     <Onboarding/>
   //   )
   // } else {
-    return (
-      <div className="Container">
-        <SearchProvider>
-        <YellowTop />
-        <NavBar/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/login" element={<Login />} /> */}
-          <Route path="/dogs/:product" element={<Products />}></Route>
-          <Route path="/cats/:product" element={<Products />}></Route>
-          <Route path="/others/:product" element={<Products />}></Route>
-          <Route path="/promotions/:product" element={<Products />}></Route>
-          <Route path="/services/:product" element={<Products />}></Route>
-          <Route path="/search" element = {<SearchPage/>}></Route>
-        </Routes>
-        <Footers />
-        </SearchProvider>
-      </div>
-    );
-  }
+  return (
+    <div className="Container">
+      <YellowTop />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/login" element={<Login />} /> */}
+        <Route
+          path="/perros/:product"
+          element={<Products name="perros" />}
+        ></Route>
+        <Route
+          path="/gatos/:product"
+          element={<Products name="gatos" />}
+        ></Route>
+        <Route
+          path="/otros/:product"
+          element={<Products name="otros" />}
+        ></Route>
+        <Route
+          path="/promociones/:product"
+          element={<Products name="promociones" />}
+        ></Route>
+        <Route
+          path="/servicios/:product"
+          element={<Products name="servicios" />}
+        ></Route>
+      </Routes>
+      <Footers />
+    </div>
+  );
+}
 // }
 
 export default App;

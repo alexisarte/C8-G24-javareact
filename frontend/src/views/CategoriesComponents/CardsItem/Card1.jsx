@@ -1,9 +1,8 @@
 import { Card, Dropdown } from "flowbite-react";
-import DogFood from "../../../assets/dog-food.jpg";
 
 const Card1 = ({ description, image }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center m-5  ">
       <div className="max-w-sm">
         <Card imgSrc={image}>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

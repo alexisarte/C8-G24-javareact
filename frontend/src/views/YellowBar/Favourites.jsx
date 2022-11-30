@@ -13,11 +13,11 @@ const Favourites = () => {
               alt="cart"
               img={hearth}
               rounded={true}
-              class="w-max rounded p-4 hover:bg-yellow-200"
+              className="w-max rounded p-4 hover:bg-yellow-200"
             />
           </>
         }
-        class=""
+        className=""
         arrowIcon={false}
         inline={true}
         placement="bottom-end"
