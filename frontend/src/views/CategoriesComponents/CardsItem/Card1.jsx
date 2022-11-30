@@ -1,19 +1,14 @@
 import { Card, Dropdown } from "flowbite-react";
 import DogFood from "../../../assets/dog-food.jpg";
 
-const Card1 = ({data}) => {
+const Card1 = ({ description, image }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="max-w-sm">
-        <Card imgSrc={DogFood }>
+        <Card imgSrc={image}>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Purina PRO PLAN por 10Kg $6000. Envío $ 500 en Tienda-Mía *precio
-            mínimo garantizado
+            {description}
           </h5>
-          {/* <p className="font-normal text-gray-700 dark:text-gray-400">
-            Purina PRO PLAN por 10Kg $6000. Envío $ 500 en Tienda-Mía *precio
-            mínimo garantizado
-          </p> */}
         </Card>
       </div>
       <div className="m-4">

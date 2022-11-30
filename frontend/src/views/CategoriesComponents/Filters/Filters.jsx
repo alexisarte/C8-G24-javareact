@@ -2,6 +2,8 @@
 import Card from '../CardsItem/Card1'
 import { Breadcrumb } from "flowbite-react";
 import { useParams } from "react-router-dom";
+import DogFood from "../../assets/dog-food.jpg";
+import DogFood2 from "../../assets/excellent-dog-adulto-formula.jpg";
 
 const Filters = () => {
   const { product } = useParams();
@@ -31,8 +33,16 @@ const Filters = () => {
             <li className="p-2">Promo 3</li>
           </ul>
         </div>
-        <Card />
-        <Card />
+        <Card
+          image={DogFood}
+          description="Purina PRO PLAN por 10Kg $6000. Envío $ 500 en Tienda-Mía *precio
+            mínimo garantizado"
+        />
+        <Card
+          image={DogFood2}
+          description="Purina EXCELLENT por 10Kg $7500. Envío gratis en LolaVet 
+  *precio mínimo garantizado"
+        />
       </div>
     </div>
   );
