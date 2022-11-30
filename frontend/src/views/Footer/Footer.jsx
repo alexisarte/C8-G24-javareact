@@ -1,5 +1,6 @@
 import { Footer } from "flowbite-react";
 import SocialNetworks from "../YellowBar/SocialNetworks";
+import { Link } from "react-router-dom";
 
 const Footers = () => {
   return (
@@ -7,12 +8,12 @@ const Footers = () => {
       <Footer container={true} className="rounded-none">
         <div className="w-full text-center">
           <div className="w-full justify-between flex items-center">
-            <a href="" className="flex flex-row">
+            <Link to={'/'} className="flex flex-row">
               <div className="flex flex-col justify-end mb-2 text-black font-logoFont gap-2 mr-44 max-lg:mr-0">
                 <p className="text-4xl">KAI</p>
                 <p className="text-4xl">PET</p>
               </div>
-            </a>
+            </Link>
             <Footer.LinkGroup className="gap-1 font-fontGotu">
               <Footer.Link href="#">Perros</Footer.Link>
               <Footer.Link href="#">Gatos</Footer.Link>
