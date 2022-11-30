@@ -7,6 +7,9 @@ import { Onboarding } from "./views/Onboarding/Onboarding";
 import Products from "./views/Pages/Categories/Products";
 import Footers from "./views/Footer/Footer";
 import NavBar from "./views/navBar/NavBar";
+import SearchPage from "./views/Pages/SearchPage/SearchPage";
+
+import { SearchProvider } from "./views/Context/SearchContext/SearchContext";
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -23,6 +26,7 @@ function App() {
   // } else {
     return (
       <div className="Container">
+        <SearchProvider>
         <YellowTop />
         <NavBar/>
         <Routes>
@@ -33,8 +37,10 @@ function App() {
           <Route path="/others/:product" element={<Products />}></Route>
           <Route path="/promotions/:product" element={<Products />}></Route>
           <Route path="/services/:product" element={<Products />}></Route>
+          <Route path="/search" element = {<SearchPage/>}></Route>
         </Routes>
         <Footers />
+        </SearchProvider>
       </div>
     );
   }

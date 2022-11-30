@@ -1,0 +1,42 @@
+ [
+    {
+      "id": 1,
+      "product": "Alimento Pro Plan 10 Kg adulto, raza mediana",
+      "precio": 6500,
+      "stock": 40,
+      "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+    },
+    {
+      "id": 2,
+      "product": "Alimento Pro Plan 5 Kg adulto, raza Grande",
+      "precio": 2500,
+      "stock": 20,
+      "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+    },
+    {
+      "id": 3,
+      "product": "Alimento Royal Canin 10 Kg adulto",
+      "precio": 4500,
+      "stock": 44,
+      "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+    },
+    {
+      "id": 4,
+      "product": "Alimento Pro Plan 10 Kg adulto, raza mediana",
+      "precio": 8500,
+      "stock": 10,
+      "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+    },
+    {
+      "id": 5,
+      "product": "Alimento Pro Plan 10 Kg adulto, raza pequeña",
+      "precio": 900,
+      "stock": 42,
+      "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+    }
+  ]
