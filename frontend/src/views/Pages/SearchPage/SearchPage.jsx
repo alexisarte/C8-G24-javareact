@@ -2,6 +2,7 @@ import { useContext } from "react";
 import SearchContext from "../../Context/SearchContext/SearchContext";
 import Card1 from "../../CategoriesComponents/CardsItem/Card1";
 
+
 const SearchPage = () => {
   const { match } = useContext(SearchContext);
 
