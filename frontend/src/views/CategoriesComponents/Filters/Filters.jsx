@@ -8,7 +8,7 @@ const returned = (products.map((itemt) => itemt.comercios.find((itemer)=> itemer
 
 
 
-const Filters = () => {
+const Filters = ({ name }) => {
   const { product } = useParams();
 
   return (
@@ -17,7 +17,7 @@ const Filters = () => {
         <Breadcrumb.Item exact href="/">
           Home
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Dogs</Breadcrumb.Item>
+        <Breadcrumb.Item href="#">{name}</Breadcrumb.Item>
         <Breadcrumb.Item>{product.slice(1)}</Breadcrumb.Item>
       </Breadcrumb>
       <div className="flex flex-row ">
@@ -41,7 +41,7 @@ const Filters = () => {
             return (
               <Card
                 image={item.img}
-                description= {item.product}
+                description={item.product}
                 comercios={item.comercios}
               />
             );

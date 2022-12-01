@@ -2,6 +2,7 @@
 import { SlideBar } from '../../Slides/SlideBar/SlideBar';
 import Services from '../../Services';
 import imgChicaHome from '../../../assets/img-chica-home.png'
+import Catalog from '../../catalog/Catalog';
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         </div>
       </div>
       <Services />
+      <Catalog />
     </>
   );
 };
