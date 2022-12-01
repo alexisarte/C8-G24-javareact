@@ -1,7 +1,10 @@
 import { Card, Dropdown } from "flowbite-react";
 import DogFood from "../../../assets/dog-food.jpg";
+import products from "../../Records/ProductsLists/ProductLists.json";
 
-const Card1 = ({ description, image }) => {
+
+const Card1 = ({ description, image, comercios }) => {
+
   return (
     <div className="flex flex-col items-center">
       <div className="max-w-sm">
@@ -12,11 +15,20 @@ const Card1 = ({ description, image }) => {
         </Card>
       </div>
       <div className="m-4">
-        <Dropdown label="Compáralo en X tiendas" placement="bottom">
-          <Dropdown.Item>Tienda-Mía</Dropdown.Item>
-          <Dropdown.Item>Settings</Dropdown.Item>
-          <Dropdown.Item>Earnings</Dropdown.Item>
-          <Dropdown.Item>Sign out</Dropdown.Item>
+        <Dropdown label={`Compáralo en ${comercios.length} tiendas`} placement="bottom">
+          {comercios.map((items) => {
+            return (
+              <Dropdown.Item className=" border w-96 flex justify-between border-r-0 border-l-0">
+                <div>
+                  <p>{items.negocio}</p>
+                </div>
+                <div>
+                  <p>$ {items.precio}</p>
+                  <p>$ {items.envio}</p>
+                </div>
+              </Dropdown.Item>
+            );
+          })}
         </Dropdown>
       </div>
     </div>
