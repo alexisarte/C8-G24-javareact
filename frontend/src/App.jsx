@@ -8,6 +8,7 @@ import Products from "./views/Pages/Categories/Products";
 import Footers from "./views/Footer/Footer";
 import NavBar from "./views/navBar/NavBar";
 import SearchPage from "./views/Pages/SearchPage/SearchPage";
+import Product from "./views/Product";
 
 import { SearchProvider } from "./views/Context/SearchContext/SearchContext";
 
@@ -51,6 +52,7 @@ function App() {
           path="/servicios/:product"
           element={<Products name="servicios" />}
         ></Route>
+        <Route path="/producto" element={<Product />}></Route>
       </Routes>
       <Footers />
     </div>
