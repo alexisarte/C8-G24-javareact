@@ -2,8 +2,9 @@
 import Card from '../CardsItem/Card1'
 import { Breadcrumb } from "flowbite-react";
 import { useParams } from "react-router-dom";
-import DogFood from "../../assets/dog-food.jpg";
-import DogFood2 from "../../assets/excellent-dog-adulto-formula.jpg";
+
+import DogFood from '../../../assets/dog-food.jpg'
+import DogFood2 from "../../../assets/excellent-dog-adulto-formula.jpg";
 
 const Filters = () => {
   const { product } = useParams();

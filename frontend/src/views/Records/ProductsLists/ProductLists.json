@@ -17,7 +17,7 @@
     },
     {
       "id": 3,
-      "product": "Alimento Royal Canin 10 Kg adulto",
+      "product": "Alimento Royal Canin 10 Kg adulto , raza Grande",
       "precio": 4500,
       "stock": 44,
       "cantidad": 1,
@@ -37,6 +37,14 @@
       "precio": 900,
       "stock": 42,
       "cantidad": 1,
+      "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+    },
+    {
+      "id": 6,
+      "product": "Alimento Pro Plan 8 Kg adulto, raza pequeña",
+      "precio": 1000,
+      "stock": 22,
+      "cantidad": 21,
       "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg"
     }
   ]
