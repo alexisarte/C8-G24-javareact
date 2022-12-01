@@ -89,9 +89,9 @@ const UserLogged = ({ registerUser, setRegisterUser }) => {
           </span>
         </Dropdown.Header>
         <form className="flex flex-col gap-4 mx-4" onSubmit={onHandleLogSubmit}>
-          {logUsers.map((item, index) => {
+          {logUsers.map((item) => {
             return (
-              <div key={index}>
+              <div>
                 <TextInput
                   id={item.id}
                   type={item.type}

@@ -1,10 +1,14 @@
 import Card from "../CardsItem/Card1";
 import { Breadcrumb } from "flowbite-react";
 import { useParams } from "react-router-dom";
-import DogFood from "../../../assets/dog-food.jpg";
-import DogFood2 from "../../../assets/excellent-dog-adulto-formula.jpg";
 
-const Filters = ({ name }) => {
+import products from "../../Records/ProductsLists/ProductLists.json";
+
+const returned = (products.map((itemt) => itemt.comercios.find((itemer)=> itemer.precio)))
+
+
+
+const Filters = () => {
   const { product } = useParams();
 
   return (
@@ -13,10 +17,10 @@ const Filters = ({ name }) => {
         <Breadcrumb.Item exact href="/">
           Home
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="#">{name}</Breadcrumb.Item>
+        <Breadcrumb.Item href="#">Dogs</Breadcrumb.Item>
         <Breadcrumb.Item>{product.slice(1)}</Breadcrumb.Item>
       </Breadcrumb>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row ">
         <div className="w-60 bg-[#B4FFED] p-6">
           <h1>Filtros</h1>
           <h2>Marcas:</h2>
@@ -32,15 +36,16 @@ const Filters = ({ name }) => {
             <li className="p-2">Promo 3</li>
           </ul>
         </div>
-        <div className="flex flex-col md:flex-row flex-wrap justify-between w-3/4">
-          <Card
-            image={DogFood}
-            description="Purina PRO PLAN por 10Kg $6000. Envío $ 500 en Tienda-Mía *precio mínimo garantizado"
-          />
-          <Card
-            image={DogFood2}
-            description="Purina EXCELLENT por 10Kg $7500. Envío gratis en LolaVet *precio mínimo garantizado"
-          />
+        <div className="grid grid-cols-3 gap-8 w-full">
+          {products.map((item) => {
+            return (
+              <Card
+                image={item.img}
+                description= {item.product}
+                comercios={item.comercios}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

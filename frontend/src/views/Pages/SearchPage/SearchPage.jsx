@@ -10,11 +10,11 @@ const SearchPage = () => {
     return (
       <>
         <div className="container mx-auto my-20">
-          <div className="grid grid-cols-3 gap-y-8">
+          <div className="grid sm:grid-cols-2 max-lg:gap-6 xl:grid-cols-3 gap-y-8">
             {match.map((item) => {
               return (
                 <>
-                  <Card1 image={item.img} description={item.product} />
+                  <Card1 image={item.img} description={item.product} comercios={item.comercios} />
                 </>
               );
             })}

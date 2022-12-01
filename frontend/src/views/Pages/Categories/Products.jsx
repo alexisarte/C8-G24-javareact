@@ -1,10 +1,10 @@
 import Filters from "../../CategoriesComponents/Filters/Filters";
 
-function Products({ name }) {
+function Products() {
   return (
     <div className="m-11">
       <h1>Products</h1>
-      <Filters name={name}/>
+      <Filters />
     </div>
   );
 }

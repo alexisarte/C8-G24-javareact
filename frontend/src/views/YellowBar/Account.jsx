@@ -22,7 +22,7 @@ const Account = () => {
             </div>
           </>
         }
-        className=" hover:bg-yellow-200 rounded"
+        class=" hover:bg-yellow-200 rounded"
       >
         {registerUser ? (
           <UserLogged

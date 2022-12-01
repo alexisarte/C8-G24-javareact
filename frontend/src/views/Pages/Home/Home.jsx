@@ -1,7 +1,7 @@
-import { SlideBar } from "../../Slides/SlideBar/SlideBar";
-import Services from "../../Services";
-import imgChicaHome from "../../../assets/img-chica-home.png";
-import Catalogo from "../../Catalog";
+
+import { SlideBar } from '../../Slides/SlideBar/SlideBar';
+import Services from '../../Services';
+import imgChicaHome from '../../../assets/img-chica-home.png'
 
 const Home = () => {
   return (
@@ -21,7 +21,6 @@ const Home = () => {
         </div>
       </div>
       <Services />
-      <Catalogo />
     </>
   );
 };
