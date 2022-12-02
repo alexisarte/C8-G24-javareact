@@ -9,10 +9,10 @@
       "comercios" : [
         {"negocio" : "Tienda Mia",
         "envio": 500 ,
-        "precio": 6500},
+        "precio": 5900},
         {"negocio" : "Maipu Vet",
         "envio": 400 ,
-        "precio": 6300},
+        "precio": 6000},
         {"negocio" : "Mi mascota",
         "envio": 530 ,
         "precio": 6300 }
@@ -31,7 +31,7 @@
         "precio": 6000},
         {"negocio" : "Lola Vet",
         "envio": 400 ,
-        "precio": 6300},
+        "precio": 6200},
         {"negocio" : "Mi mascota",
         "envio": 530 ,
         "precio": 6300 }
@@ -69,7 +69,7 @@
         "precio": 6300},
         {"negocio" : "Mi mascota",
         "envio": 530 ,
-        "precio": 6300 }
+        "precio": 5850 }
       ]
     },
     {
@@ -85,7 +85,7 @@
         "precio": 6500},
         {"negocio" : "Pete life",
         "envio": 530 ,
-        "precio": 6300 }
+        "precio": 6120 }
       ]
     },
     {
@@ -98,10 +98,16 @@
       "comercios" : [
         {"negocio" : "Lola Vet",
         "envio": 500 ,
-        "precio": 6500},
+        "precio": 6200},
         {"negocio" : "Mi mascota",
         "envio": 530 ,
-        "precio": 6300 }
+        "precio": 6300 },
+        {"negocio" : "Pet shop",
+        "envio": 530 ,
+        "precio": 6000 },
+        {"negocio" : "Can shop",
+        "envio": 530 ,
+        "precio": 3700 }
       ]
     }
   ]
