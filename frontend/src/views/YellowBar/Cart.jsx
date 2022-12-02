@@ -7,12 +7,13 @@ import { Dropdown, Avatar, Button } from "flowbite-react";
 import { useState , useEffect } from "react";
 
 import productsLists from '../Records/ProductsLists/ProductLists.json'
+import { useNavigate } from "react-router-dom";
 
 
 const Cart = () => {
-  
+  const navigate = useNavigate();
   function buyCart(){
-    alert("Pasa a pagina de carrito")
+    navigate("/cart")
   }
 
   return (
@@ -33,6 +34,7 @@ const Cart = () => {
         inline={true}
         placement="bottom-start"
       >
+        
         <Dropdown.Header>
           <span className="block text-lg font-semibold truncate">Carrito</span>
           <span className="flex max-sm:hidden">

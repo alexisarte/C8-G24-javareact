@@ -1,7 +1,4 @@
 import { Card, Dropdown } from "flowbite-react";
-import DogFood from "../../../assets/dog-food.jpg";
-import products from "../../Records/ProductsLists/ProductLists.json";
-
 
 const Card1 = ({ description, image, comercios , shopping , shipments , price }) => {
 

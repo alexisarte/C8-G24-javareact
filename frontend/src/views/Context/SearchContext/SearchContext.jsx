@@ -21,11 +21,6 @@ const SearchProvider = ({ children }) => {
 
         const matchProductsKeywords = products.filter((item) => item.product.toUpperCase().includes(searchKeywords.toUpperCase()))
         setMatch(matchProductsKeywords)
-        // for (let i = 0; i < products.length; i++) {
-        //     console.log(products[i].product)
-        // }
-
-
     }
   
     const data = {

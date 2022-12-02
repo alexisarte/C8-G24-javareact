@@ -10,6 +10,7 @@ import NavBar from "./views/navBar/NavBar";
 import SearchPage from "./views/Pages/SearchPage/SearchPage";
 
 import { SearchProvider } from "./views/Context/SearchContext/SearchContext";
+import { CartPage } from "./views/Pages/CartPage/CartPage";
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/promotions/:product" element={<Products />}></Route>
           <Route path="/services/:product" element={<Products />}></Route>
           <Route path="/search" element = {<SearchPage/>}></Route>
+          <Route path="/cart" element = {<CartPage/>} ></Route>
         </Routes>
         <Footers />
         </SearchProvider>
