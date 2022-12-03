@@ -7,7 +7,7 @@ const Catalogo = () => {
     <div>
       <ul className="bg-[#EADCDC] grid grid-cols-4 gap-4 p-4 text-center">
         {records.map((record) => (
-          <Link key={record.id} to="/producto">
+          <Link key={record.id} to={`/producto/:${record.id}`}>
             <Card imgSrc={record.img}>
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 {`$${record.precio} c/u`}
