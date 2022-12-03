@@ -10,42 +10,93 @@ import { useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 
 export const CartPage = () => {
-
-  
-
+  const [optionText, setOptionText] = useState();
+  const [print, setPrint] = useState();
+  const [impress, setImpress] = useState();
   const [value, setValue] = useState({
     startDate: new Date(),
     endDate: new Date().setMonth(11)
   });
 
-  const handleValueChange = (newValue) => {
-    console.log("newValue:", newValue);
-    setValue(newValue);
-  };
-
   const [formValue, setFormValue] = useState({
     form: ""
   });
 
-  const [print , setPrint] = useState();
+  const [inDateItems, setInDateItems] = useState({
+    number: "",
+    month: "",
+    day: "",
+    year: ""
+  });
 
-  const [impress , setImpress] = useState();
-  
-  const handleChangeForm = (e) => {
-   
-      setFormValue(e.target.value);
-     
+  const [outDateItems, setOutDateItems] = useState({
+    number: "",
+    month: "",
+    day: "",
+    year: ""
+  });
+
+  const dias = [
+    "domingo",
+    "lunes",
+    "martes",
+    "miércoles",
+    "jueves",
+    "viernes",
+    "sábado",
+    "domingo"
+  ];
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue);
+
+    //Introducir valores de inicio
+    const numberDayIn = new Date(newValue.startDate).getDay();
+    const nameDayIn = dias[numberDayIn];
+
+    const dateIn = newValue.startDate.split("-");
+
+    const setDateIn = Object.assign(inDateItems, {
+      number: dateIn[2],
+      day: nameDayIn,
+      month: dateIn[1],
+      year: dateIn[0]
+    });
+
+    //Introducir valores de salida
+    const numberDayOut = new Date(newValue.endDate).getDay();
+    const nameDayOut = dias[numberDayOut];
+
+    const dateOut = newValue.endDate.split("-");
+
+    const setDateOut = Object.assign(outDateItems, {
+      number: dateOut[2],
+      day: nameDayOut,
+      month: dateOut[1],
+      year: dateOut[0]
+    });
+
+    setInDateItems(setDateIn);
+    setOutDateItems(setDateOut);
   };
-  
+
+  const handleChangeForm = (e) => {
+    setFormValue(e.target.value);
+  };
+ 
   const handleSubmitCart = (e) => {
     e.preventDefault();
-    console.log(e.target.value.length)
-    setImpress(true);
-    setPrint(formValue);
+   
+    if (formValue.length >= 7 && inDateItems.day.length >= 1) {
+      setImpress(true);
+      setPrint(formValue);
+      const turns = document.getElementById("turns");
+      const textTurns = turns.options[turns.selectedIndex].text;
+      setOptionText(textTurns);
+      
+    }
   };
 
-  
- // console.log("newValue:", value);
   return (
     <div className="container mx-auto my-16">
       <CartList products={products} />
@@ -64,15 +115,15 @@ export const CartPage = () => {
               />
             </div>
             <div className="flex items-center">
-              <Datepicker onChange={handleValueChange} />
+              <Datepicker onChange={handleValueChange} value={value} />
               <div id="select">
                 <div className="mb-2 block"></div>
               </div>
             </div>
-            <Select id="countries" required={true}>
-              <option>Mañana (Entre las 9 y las 14hs)</option>
-              <option>Tarde (Entre las 14 y las 19hs)</option>
-              <option>Todo el día</option>
+            <Select id="turns" required={true}>
+              <option value="morning">Mañana (Entre las 9 y las 14hs)</option>
+              <option value="evening">Tarde (Entre las 14 y las 19hs)</option>
+              <option value="allDay">Todo el día</option>
             </Select>
             <Button type="submit" color="dark">
               Continuar
@@ -81,7 +132,18 @@ export const CartPage = () => {
         </Card>
         <Card className="basis-2/4 max-sm:basis-4/5 max-sm:mt-4">
           <p className="text-center">
-          {impress  ? `Tu codigo postal es el ${print}` : "No ha elegido un codigo postal"}
+            {impress ? (
+              <div>
+                <p>Tu codigo postal es el {print}</p>
+                <p>{`
+                  Te llevaremos tu producto entre los dias ${inDateItems.day}
+                  ${inDateItems.number}/${inDateItems.month}/${inDateItems.year} y el ${outDateItems.day}
+                  ${outDateItems.number}/${outDateItems.month}/${outDateItems.year} entre los horarios de ${optionText} `}
+                </p>
+              </div>
+            ) : (
+              "Por favor completa el formulario"
+            )}
           </p>
           <Button color="dark" type="submit">
             Confirmar
