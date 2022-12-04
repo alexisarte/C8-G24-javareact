@@ -46,17 +46,22 @@ export const CartPage = () => {
     "sábado",
     "domingo"
   ];
+  
+function clickOn(){
+  setImpress(true);
+}
 
   const handleValueChange = (newValue) => {
+    setImpress(false)
     setValue(newValue);
-
+    
     //Introducir valores de inicio
     const numberDayIn = new Date(newValue.startDate).getDay();
     const nameDayIn = dias[numberDayIn];
 
     const dateIn = newValue.startDate.split("-");
 
-    const setDateIn = Object.assign(inDateItems, {
+     Object.assign(inDateItems, {
       number: dateIn[2],
       day: nameDayIn,
       month: dateIn[1],
@@ -69,29 +74,30 @@ export const CartPage = () => {
 
     const dateOut = newValue.endDate.split("-");
 
-    const setDateOut = Object.assign(outDateItems, {
+    Object.assign(outDateItems, {
       number: dateOut[2],
       day: nameDayOut,
       month: dateOut[1],
       year: dateOut[0]
     });
 
-    setInDateItems(setDateIn);
-    setOutDateItems(setDateOut);
   };
 
-  const handleChangeForm = (e) => {
-    setFormValue(e.target.value);
+  const handleChangeForm = (event) => {
+    event.preventDefault();
+    setImpress(false)
+    setFormValue(event.target.value);
   };
  
   const handleSubmitCart = (e) => {
     e.preventDefault();
+
+    const turns = document.getElementById("turns");
+    const textTurns = turns.options[turns.selectedIndex].text;
    
-    if (formValue.length >= 7 && inDateItems.day.length >= 1) {
-      setImpress(true);
+    if (formValue.length >= 7 && inDateItems.day.length >= 1 && outDateItems.day.length >= 1) {
+      
       setPrint(formValue);
-      const turns = document.getElementById("turns");
-      const textTurns = turns.options[turns.selectedIndex].text;
       setOptionText(textTurns);
       
     }
@@ -102,7 +108,7 @@ export const CartPage = () => {
       <CartList products={products} />
       <div className="mt-8 flex gap-2 sm:gap-6 md:gap-10 max-sm:flex-wrap max-sm:justify-center">
         <Card className="basis-2/4 max-sm:basis-4/5">
-          <form className="flex flex-col gap-4" onClick={handleSubmitCart}>
+          <form className="flex flex-col gap-4" onSubmit={handleSubmitCart}>
             <div>
               <TextInput
                 maxLength={8}
@@ -116,22 +122,19 @@ export const CartPage = () => {
             </div>
             <div className="flex items-center">
               <Datepicker onChange={handleValueChange} value={value} />
-              <div id="select">
-                <div className="mb-2 block"></div>
-              </div>
             </div>
             <Select id="turns" required={true}>
               <option value="morning">Mañana (Entre las 9 y las 14hs)</option>
               <option value="evening">Tarde (Entre las 14 y las 19hs)</option>
               <option value="allDay">Todo el día</option>
             </Select>
-            <Button type="submit" color="dark">
+            <Button type="submit" color="dark" onClick={clickOn}>
               Continuar
             </Button>
           </form>
         </Card>
         <Card className="basis-2/4 max-sm:basis-4/5 max-sm:mt-4">
-          <p className="text-center">
+          <div className="text-center">
             {impress ? (
               <div>
                 <p>Tu codigo postal es el {print}</p>
@@ -144,7 +147,7 @@ export const CartPage = () => {
             ) : (
               "Por favor completa el formulario"
             )}
-          </p>
+          </div>
           <Button color="dark" type="submit">
             Confirmar
           </Button>
