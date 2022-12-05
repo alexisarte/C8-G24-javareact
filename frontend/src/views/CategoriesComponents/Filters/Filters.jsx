@@ -25,15 +25,21 @@ const Filters = ({ name }) => {
           <h1>Filtros</h1>
           <h2>Marcas:</h2>
           <ul className="flex flex-col">
-            <li className="p-2">Marca 1</li>
-            <li className="p-2">Marca 2</li>
-            <li className="p-2">Marca 3</li>
+            {products.map((item) => (
+              <li className="flex flex-row">
+                <input type="checkbox" />
+                <p>{item.product}</p>
+              </li>
+            ))}
           </ul>
           <h2>Promociones:</h2>
           <ul className="flex flex-col">
-            <li className="p-2">Promo 1</li>
-            <li className="p-2">Promo 2</li>
-            <li className="p-2">Promo 3</li>
+            {products.map((item) => (
+              <li className="flex flex-row">
+                <input type="checkbox" />
+                <p>{item.cantidad}</p>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="grid grid-cols-3 gap-8 w-full">
