@@ -9,6 +9,7 @@ import Footers from "./views/Footer/Footer";
 import NavBar from "./views/navBar/NavBar";
 import SearchPage from "./views/Pages/SearchPage/SearchPage";
 import ProductCard from "./views/catalog/ProductCard";
+import FormPayment from "./views/FormPayment";
 
 import { SearchProvider } from "./views/Context/SearchContext/SearchContext";
 
@@ -56,6 +57,8 @@ function App() {
           ></Route>
           <Route path="/search" element={<SearchPage />}></Route>
           <Route path="/producto/:id" element={<ProductCard />}></Route>
+          <Route path="/producto/:id" element={<ProductCard />}></Route>
+          <Route path="/pay" element={<FormPayment />}></Route>
         </Routes>
         <Footers />
       </SearchProvider>
