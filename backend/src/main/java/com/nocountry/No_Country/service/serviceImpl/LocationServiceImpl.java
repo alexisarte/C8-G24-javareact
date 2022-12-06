@@ -19,13 +19,13 @@ public class LocationServiceImpl implements LocationService {
 
     private final LocationMapper locationMapper;
     private final LocationRepository locationRepository;
-    @Autowired
-    private ItemMapper itemMapper;
+    private final ItemMapper itemMapper;
 
     @Autowired
-    public LocationServiceImpl(LocationMapper locationMapper, LocationRepository locationRepository) {
+    public LocationServiceImpl(LocationMapper locationMapper, LocationRepository locationRepository, ItemMapper itemMapper) {
         this.locationMapper = locationMapper;
         this.locationRepository = locationRepository;
+        this.itemMapper = itemMapper;
     }
 
 

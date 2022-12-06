@@ -5,6 +5,7 @@ import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.service.ItemService;
 import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.ShopService;
+import com.nocountry.No_Country.utils.FinalPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,11 +28,7 @@ public class ShopController {
         this.locationService = locationService;
     }
 
-    //TODO crear entidad transaccion (Monto total, items, costo envio, direccion shop, direccion usuario)
 
-    //TODO Resolver precio para cada item segun shop.
-
-    //---------------------------------------------------------------------------------//
 
     //TODO documentar
 
@@ -39,11 +36,9 @@ public class ShopController {
 
     //TODO CRUD final de usuarios con roles y Auth.
 
-    //TODO login
-
     //TODO CORS protocol.
 
-    //TODO Crear DTOS en base a necesidades para evitar información no util.
+
 
     @PostMapping("/{shopId}/add/{itemId}")
     public ResponseEntity<ShopDTO> addItem2Shop(@PathVariable Long itemId,
@@ -94,5 +89,7 @@ public class ShopController {
 
         return new ResponseEntity<>(shopItemsByCategory, HttpStatus.OK);
     }
+
+
 
 }

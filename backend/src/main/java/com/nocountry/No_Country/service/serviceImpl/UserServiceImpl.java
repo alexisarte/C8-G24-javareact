@@ -19,16 +19,16 @@ import java.util.Objects;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper  userMapper;
+
+    private final CartRepository cartRepository;
     private final CartService cartService;
-    @Autowired
-    private CartRepository cartRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository,CartService cartService ,UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository, CartService cartService , UserMapper userMapper, CartRepository cartRepository) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.cartService = cartService;
-
+        this.cartRepository = cartRepository;
     }
 
     public List<UserDTO> getAllUsers(){

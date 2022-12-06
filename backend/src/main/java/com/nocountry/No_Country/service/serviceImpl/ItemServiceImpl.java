@@ -2,12 +2,22 @@ package com.nocountry.No_Country.service.serviceImpl;
 
 import com.nocountry.No_Country.dtos.BasicItemDTO;
 import com.nocountry.No_Country.dtos.ItemDTO;
+import com.nocountry.No_Country.entity.AnimalEnum;
+import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.entity.Item;
 import com.nocountry.No_Country.mapper.ItemMapper;
 import com.nocountry.No_Country.repository.ItemRepository;
 import com.nocountry.No_Country.service.ItemService;
+import com.nocountry.No_Country.utils.CreatePage;
+import com.nocountry.No_Country.utils.FinalPage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.CannotCreateTransactionException;
+
+import java.util.stream.Collectors;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -46,6 +56,25 @@ public class ItemServiceImpl implements ItemService {
         Item item = itemRepository.findById(itemId).orElseThrow(
                 ()-> new RuntimeException("Item not found with id: "+itemId));
         return itemMapper.itemEntity2BasicDTO(item);
+    }
+
+    public FinalPage getItemsByFilters(int page,
+                                       String name,
+                                       AnimalEnum animal,
+                                       CategoryEnum categoryEnum){
+
+        Pageable pageable = PageRequest.of(page-1,3) ;
+        CreatePage createPage = new CreatePage();
+
+        if(name != null && (animal != null || categoryEnum != null)){
+            Page <Item> itemsByFilters = itemRepository.getItemsByNameAndCategoryOrAnimal(
+                    name, categoryEnum, animal, pageable);
+
+            createPage.paginateResult(itemsByFilters).loadList(itemsByFilters.getContent().stream()
+                    .map(itemMapper::itemEntity2DTO).collect(Collectors.toList()));
+        }
+        return createPage.build();
+
     }
 
 

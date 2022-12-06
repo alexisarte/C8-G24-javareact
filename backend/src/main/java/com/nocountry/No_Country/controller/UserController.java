@@ -6,8 +6,10 @@ import com.nocountry.No_Country.entity.Cart;
 import com.nocountry.No_Country.entity.CategoryEnum;
 import com.nocountry.No_Country.mapper.CartMapper;
 import com.nocountry.No_Country.service.CartService;
+import com.nocountry.No_Country.service.ItemService;
 import com.nocountry.No_Country.service.LocationService;
 import com.nocountry.No_Country.service.UserService;
+import com.nocountry.No_Country.utils.FinalPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,40 +24,41 @@ public class UserController {
     private final LocationService locationService;
     private final CartService cartService;
     private final CartMapper cartMapper;
+    private final ItemService itemService;
+
     @Autowired
-    public UserController(UserService userService, LocationService locationService, CartService cartService, CartMapper cartMapper) {
+    public UserController(UserService userService, LocationService locationService, CartService cartService, CartMapper cartMapper, ItemService itemService) {
 
         this.userService = userService;
         this.locationService = locationService;
         this.cartService = cartService;
         this.cartMapper = cartMapper;
+        this.itemService = itemService;
     }
 
 
-    //Funcion creada solo a fines de test :)
     @GetMapping("/all")
     public ResponseEntity<List<UserDTO>> getAllUsers(){
         List<UserDTO> users = this.userService.getAllUsers();
         return ResponseEntity.ok().body(users);
     }
 
+
+    @GetMapping("/items")
+    public ResponseEntity<FinalPage> getAllItemsByFilters(@RequestParam(required = false, defaultValue = "1") int page,
+                                                          @RequestParam(required = false) String name,
+                                                          @RequestParam(required = false) CategoryEnum categoryEnum,
+                                                          @RequestParam(required = false) AnimalEnum animalEnum){
+        FinalPage itemsByFilters = itemService.getItemsByFilters(page,name,animalEnum,categoryEnum);
+        return new ResponseEntity<>(itemsByFilters, HttpStatus.OK);
+    }
     @GetMapping("/location/{id}")
     public ResponseEntity<BasicLocationDTO> getLocationById(@PathVariable Long id){
         return ResponseEntity.ok().body(this.locationService.getLocationById(id));
     }
 
-    @PostMapping("{userId}/add/{itemId}")
-        public ResponseEntity<CartDTO> addItem2Cart(@PathVariable Long userId,
-                                                    @PathVariable Long itemId){
-        return ResponseEntity.ok().body(this.cartService.addItem2Cart(userId,itemId));
-        }
 
 
-    @DeleteMapping("/{userId}/remove/{itemId}")
-    public ResponseEntity<List<BasicItemDTO>> removeItemFromCart(@PathVariable Long userId,
-                                                                 @PathVariable Long itemId){
-        return ResponseEntity.ok().body(this.cartService.deleteOneItem(userId,itemId));
-    }
 
     @GetMapping("/{userId}")
     public ResponseEntity<BasicUserDTO> getUserById(@PathVariable Long userId){
@@ -82,12 +85,16 @@ public class UserController {
         return new ResponseEntity<>(itemsByParameters,HttpStatus.OK);
         }
 
-
     @PostMapping("/create")
     public ResponseEntity<UserDTO> createUserBeta(@RequestBody UserDTO userDTO){
         UserDTO user = userService.createProvisionalUser(userDTO);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
+    @PostMapping("{userId}/add/{itemId}")
+        public ResponseEntity<CartDTO> addItem2Cart(@PathVariable Long userId,
+                                                    @PathVariable Long itemId){
+        return ResponseEntity.ok().body(this.cartService.addItem2Cart(userId,itemId));
+        }
     @PostMapping("/addCartToUser/{userId}")
     public ResponseEntity<CartDTO> addCartToUser(@PathVariable Long userId){
         Cart cartEntity = cartService.createCartForNewUser(userId);
@@ -96,6 +103,9 @@ public class UserController {
 
     }
 
-
-
+    @DeleteMapping("/{userId}/remove/{itemId}")
+    public ResponseEntity<List<BasicItemDTO>> removeItemFromCart(@PathVariable Long userId,
+                                                                 @PathVariable Long itemId){
+        return ResponseEntity.ok().body(this.cartService.deleteOneItem(userId,itemId));
+    }
 }

@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,4 +35,13 @@ public class User {
 
     @OneToOne
     private Cart cart;
+
+    @ManyToMany(cascade ={
+            CascadeType.PERSIST,CascadeType.MERGE
+    },fetch = FetchType.LAZY)
+    @JoinTable(name = "user_fav_item",
+            joinColumns = @JoinColumn(name="id_item"),
+            inverseJoinColumns = @JoinColumn(name="id_user"))
+    private List<Item> userFavItems = new ArrayList<>();
+
 }
