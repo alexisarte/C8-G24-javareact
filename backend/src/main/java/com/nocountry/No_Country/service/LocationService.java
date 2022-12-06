@@ -19,4 +19,6 @@ public interface LocationService {
                                                           AnimalEnum animal,
                                                           CategoryEnum categoryEnum);
 
+    List<BasicItemDTO> getLocationItemsByName(Long locationId, String name);
+
 }

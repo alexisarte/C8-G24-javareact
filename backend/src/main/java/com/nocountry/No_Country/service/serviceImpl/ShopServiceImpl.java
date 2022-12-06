@@ -112,6 +112,23 @@ public class ShopServiceImpl implements ShopService {
         return itemMapper.itemEntityList2BasicDTOList(itemsByCategory);
 
     }
+    public List<BasicItemDTO> getShopItemByName(Long shopId, String name){
+        List<Item> itemsByCategory = new ArrayList<>();
+
+        Shop shop = shopRepository.findById(shopId).orElseThrow(
+                ()-> new RuntimeException("Shop not found"));
+
+        List<Item> shopItems = shop.getShopItems();
+
+        for(Item item : shopItems){
+            if(Objects.equals(item.getName(), name)){
+                itemsByCategory.add(item);
+            }
+        }
+
+        return itemMapper.itemEntityList2BasicDTOList(itemsByCategory);
+
+    }
 
 
 }

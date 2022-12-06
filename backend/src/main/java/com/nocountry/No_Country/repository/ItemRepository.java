@@ -20,4 +20,6 @@ public interface ItemRepository extends JpaRepository<Item,Long> {
                                                   CategoryEnum category,
                                                   AnimalEnum animal,
                                                   Pageable pageable);
+
+    List<Item> getAllByName(String name);
 }

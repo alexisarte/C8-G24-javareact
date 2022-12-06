@@ -85,6 +85,13 @@ public class UserController {
         return new ResponseEntity<>(itemsByParameters,HttpStatus.OK);
         }
 
+    @GetMapping("/{locationId}/{itemName}")
+    public ResponseEntity<List<BasicItemDTO>> getItemsOfCityByName(@PathVariable Long locationId,
+                                                                   @PathVariable String itemName){
+        List<BasicItemDTO> itemsByName = locationService.getLocationItemsByName(locationId, itemName);
+        return new ResponseEntity<>(itemsByName, HttpStatus.OK);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<UserDTO> createUserBeta(@RequestBody UserDTO userDTO){
         UserDTO user = userService.createProvisionalUser(userDTO);

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class LocationServiceImpl implements LocationService {
@@ -75,5 +76,25 @@ public class LocationServiceImpl implements LocationService {
         }
         return itemMapper.itemEntityList2BasicDTOList(itemsByFilter);
     }
+
+    public List<BasicItemDTO> getLocationItemsByName(Long locationId, String name){
+
+
+        List<Item> itemsByName = new ArrayList<>();
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(
+                        ()-> new RuntimeException("Location not found"));
+
+        for(Shop shop : location.getShops()){
+            for(Item item : shop.getShopItems()){
+                if((Objects.equals(item.getName(), name))){
+                    itemsByName.add(item);
+                }
+            }
+
+        }
+        return itemMapper.itemEntityList2BasicDTOList(itemsByName);
+    }
+
 
 }
