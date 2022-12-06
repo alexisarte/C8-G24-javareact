@@ -23,11 +23,11 @@ function App() {
     }, 3550);
   }, []);
 
-  // if (load) {
-  //   return(
-  //     <Onboarding/>
-  //   )
-  // } else {
+  if (load) {
+     return(
+       <Onboarding/>
+     )
+   } else {
     return (
       <div className="Container">
         <SearchProvider>
@@ -51,6 +51,6 @@ function App() {
       </div>
     );
   }
-// }
+}
 
 export default App;
