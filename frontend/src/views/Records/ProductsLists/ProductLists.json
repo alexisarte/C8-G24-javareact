@@ -1,11 +1,11 @@
  [
     {
       "id": 1,
-      "product": "Alimento Pro Plan 10 Kg adulto, raza mediana",
+      "product": "Alimento Royal Canin 10 Kg adulto, raza mediana",
       "precio": 6500,
       "stock": 40,
       "cantidad": 1,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-1.jpg",
+      "img": "/src/assets/royal_Canin.webp",
       "comercios" : [
         {"negocio" : "Tienda Mia",
         "envio": 500 ,
@@ -20,11 +20,11 @@
     },
     {
       "id": 2,
-      "product": "Alimento Pro Plan 5 Kg adulto, raza Grande",
+      "product": "Alimento Royal Canin 5 Kg adulto, raza Grande",
       "precio": 2500,
       "stock": 20,
       "cantidad": 1,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-2.jpg",
+      "img": "/src/assets/royal_canin2.webp",
       "comercios" : [
         {"negocio" : "Tienda Mia",
         "envio": 500 ,
@@ -39,11 +39,11 @@
     },
     {
       "id": 3,
-      "product": "Alimento Royal Canin 10 Kg adulto , raza Grande",
+      "product": "Alimento Royal Canin 10 Kg adulto , raza mediana",
       "precio": 4500,
       "stock": 44,
       "cantidad": 1,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-3.jpg",
+      "img": "/src/assets/royal_Canin3.webp",
       "comercios" : [
         {"negocio" : "Tienda Mia",
         "envio": 500 ,
@@ -55,11 +55,11 @@
     },
     {
       "id": 4,
-      "product": "Alimento Pro Plan 10 Kg adulto, raza mediana",
+      "product": "Alimento Royal Canin 10 Kg adulto, raza mediana",
       "precio": 8500,
       "stock": 10,
       "cantidad": 1,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-4.jpg",
+      "img": "/src/assets/royal_Canin4.webp",
       "comercios" : [
         {"negocio" : "Tienda Mia",
         "envio": 500 ,
@@ -74,11 +74,11 @@
     },
     {
       "id": 5,
-      "product": "Alimento Pro Plan 10 Kg adulto, raza pequeña",
+      "product": "Alimento Royal Canin 10 Kg adulto, raza pequeña",
       "precio": 900,
       "stock": 42,
       "cantidad": 1,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+      "img": "/src/assets/royal_Canin5.webp",
       "comercios" : [
         {"negocio" : "Lola Vet",
         "envio": 500 ,
@@ -90,11 +90,11 @@
     },
     {
       "id": 6,
-      "product": "Alimento Pro Plan 8 Kg adulto, raza pequeña",
+      "product": "Alimento Royal Canin 8 Kg adulto, raza pequeña",
       "precio": 1000,
       "stock": 22,
       "cantidad": 21,
-      "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+      "img": "/src/assets/royal_Canin7.webp",
       "comercios" : [
         {"negocio" : "Lola Vet",
         "envio": 500 ,

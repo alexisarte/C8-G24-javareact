@@ -14,7 +14,7 @@ const Card1 = ({ description, image, comercios , shopping , shipments , price })
         </Card>
       </div>
       <div className="m-4">
-        <Dropdown label={`Compáralo en ${comercios.length} tiendas`} placement="bottom">
+        <Dropdown label={`Compáralo en ${comercios.length} tiendas`} placement="bottom" style={{backgroundColor:"#37cbfa"}}>
           {comercios.map((items) => {
             return (
               <Dropdown.Item className=" border w-96 flex justify-between border-r-0 border-l-0">
