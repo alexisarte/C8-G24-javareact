@@ -13,14 +13,7 @@ const SearchPage = () => {
             {match.map((item) => {
               return (
                 <>
-                  <Card1
-                    image={item.img}
-                    description={item.product}
-                    comercios={item.comercios}
-                    shopping={item.comercios.map((item) => item.negocio)[0]}
-                    shipments={item.comercios.map((item) => item.envio)[0]}
-                    price={item.comercios.map((item) => item.precio)[0]}
-                  />
+                  <Card1 image={item.img} description={item.product} comercios={item.comercios} />
                 </>
               );
             })}
