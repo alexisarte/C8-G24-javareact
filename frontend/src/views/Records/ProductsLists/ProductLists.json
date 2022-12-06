@@ -5,10 +5,10 @@
     "precio": 6500,
     "stock": 40,
     "cantidad": 1,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-1.jpg",
+    "img": "/src/assets/royal_Canin.webp",
     "comercios": [
-      { "negocio": "Tienda Mia", "envio": 500, "precio": 6500 },
-      { "negocio": "Maipu Vet", "envio": 400, "precio": 6300 },
+      { "negocio": "Tienda Mia", "envio": 500, "precio": 5900 },
+      { "negocio": "Maipu Vet", "envio": 400, "precio": 6000 },
       { "negocio": "Mi mascota", "envio": 530, "precio": 6300 }
     ]
   },
@@ -18,10 +18,10 @@
     "precio": 2500,
     "stock": 20,
     "cantidad": 1,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-2.jpg",
+    "img": "/src/assets/royal_canin2.webp",
     "comercios": [
       { "negocio": "Tienda Mia", "envio": 500, "precio": 6000 },
-      { "negocio": "Lola Vet", "envio": 400, "precio": 6300 },
+      { "negocio": "Lola Vet", "envio": 400, "precio": 6200 },
       { "negocio": "Mi mascota", "envio": 530, "precio": 6300 }
     ]
   },
@@ -31,7 +31,7 @@
     "precio": 4500,
     "stock": 44,
     "cantidad": 1,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-3.jpg",
+    "img": "/src/assets/royal_Canin3.webp",
     "comercios": [
       { "negocio": "Tienda Mia", "envio": 500, "precio": 6500 },
       { "negocio": "Pete life", "envio": 530, "precio": 6300 }
@@ -43,11 +43,11 @@
     "precio": 8500,
     "stock": 10,
     "cantidad": 1,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-4.jpg",
+    "img": "/src/assets/royal_Canin4.webp",
     "comercios": [
       { "negocio": "Tienda Mia", "envio": 500, "precio": 6500 },
       { "negocio": "Maipu Vet", "envio": 400, "precio": 6300 },
-      { "negocio": "Mi mascota", "envio": 530, "precio": 6300 }
+      { "negocio": "Mi mascota", "envio": 530, "precio": 5850 }
     ]
   },
   {
@@ -56,10 +56,10 @@
     "precio": 900,
     "stock": 42,
     "cantidad": 1,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+    "img": "/src/assets/royal_Canin5.webp",
     "comercios": [
       { "negocio": "Lola Vet", "envio": 500, "precio": 6500 },
-      { "negocio": "Pete life", "envio": 530, "precio": 6300 }
+      { "negocio": "Pete life", "envio": 530, "precio": 6120 }
     ]
   },
   {
@@ -68,10 +68,12 @@
     "precio": 1000,
     "stock": 22,
     "cantidad": 21,
-    "img": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+    "img": "/src/assets/royal_Canin7.webp",
     "comercios": [
-      { "negocio": "Lola Vet", "envio": 500, "precio": 6500 },
-      { "negocio": "Mi mascota", "envio": 530, "precio": 6300 }
+      { "negocio": "Lola Vet", "envio": 500, "precio": 6200 },
+      { "negocio": "Mi mascota", "envio": 530, "precio": 6300 },
+      { "negocio": "Pet shop", "envio": 530, "precio": 6000 },
+      { "negocio": "Can shop", "envio": 530, "precio": 3700 }
     ]
   }
 ]
