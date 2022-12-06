@@ -30,11 +30,14 @@ const Filters = ({ name }) => {
     });
 
     if (e.target.checked) {
-      const result = products.filter((item) => item.product === e.target.value);
+      const result = products.filter(
+        (item) =>
+          item.product.includes(e.target.value) && !filteredData.includes(item)
+      );
       setFilteredData([...filteredData, ...result]);
     } else {
       const result = filteredData.filter(
-        (item) => item.product !== e.target.value
+        (item) => !item.product.includes(e.target.value)
       );
       setFilteredData(result);
     }
@@ -54,28 +57,49 @@ const Filters = ({ name }) => {
       <div className="flex flex-row ">
         <div className="w-60 bg-[#B4FFED] p-6">
           <h1>Filtros</h1>
-          <h2>Marcas:</h2>
-          <div className="flex flex-col">
-            {products.map((item) => (
-              <div className="flex flex-row">
-                <input
-                  type="checkbox"
-                  value={item.product}
-                  onChange={handleOnCheckbox}
-                />
-                <label>{item.product}</label>
-              </div>
-            ))}
+          <h2>Raza:</h2>
+          <div className="text-[#927D7D]">
+            <div>
+              <input
+                type="checkbox"
+                value={"pequeña"}
+                onChange={handleOnCheckbox}
+              />
+              <label>{"pequeña"}</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                value={"mediana"}
+                onChange={handleOnCheckbox}
+              />
+              <label>{"mediana"}</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                value={"grande"}
+                onChange={handleOnCheckbox}
+              />
+              <label>{"grande"}</label>
+            </div>
           </div>
-          <h2>Promociones:</h2>
-          <ul className="flex flex-col">
-            {products.map((item) => (
-              <li className="flex flex-row">
-                <input type="checkbox" />
-                <p>{item.cantidad}</p>
-              </li>
-            ))}
-          </ul>
+    
+          <h2>Kilogramos:</h2>
+          <div className="text-[#927D7D]">
+            <div>
+              <input type="checkbox" value={"5"} onChange={handleOnCheckbox} />
+              <label>{"5 kg"}</label>
+            </div>
+            <div>
+              <input type="checkbox" value={"8"} onChange={handleOnCheckbox} />
+              <label>{"8 kg"}</label>
+            </div>
+            <div>
+              <input type="checkbox" value={"10"} onChange={handleOnCheckbox} />
+              <label>{"10 kg"}</label>
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-3 gap-8 w-full">
           {filteredData.map((item) => {

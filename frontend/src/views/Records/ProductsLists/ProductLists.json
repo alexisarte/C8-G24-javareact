@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "product": "Alimento Royal Canin 10 Kg adulto, raza mediana",
+    "product": "Alimento Royal Canin 10 Kg adulto, raza grande",
     "precio": 6500,
     "stock": 40,
     "cantidad": 1,
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "product": "Alimento Royal Canin 5 Kg adulto, raza Grande",
+    "product": "Alimento Royal Canin 5 Kg adulto, raza grande",
     "precio": 2500,
     "stock": 20,
     "cantidad": 1,
@@ -39,7 +39,7 @@
   },
   {
     "id": 4,
-    "product": "Alimento Royal Canin 10 Kg adulto, raza mediana",
+    "product": "Alimento Royal Canin 8 Kg adulto, raza mediana",
     "precio": 8500,
     "stock": 10,
     "cantidad": 1,
