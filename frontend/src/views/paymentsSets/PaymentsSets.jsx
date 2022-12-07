@@ -33,7 +33,7 @@ const PaymentsSets = () => {
         if (userRegistered !== null) {
           alert("Estas registrado");
           sessionStorage.setItem("creditCard", JSON.stringify(creditCard));
-          navigate("");
+          navigate("/checkform/validation");
         } else {
           alert("Registrate apretando el boton mi cuenta");
         }

@@ -16,6 +16,7 @@ import { CartPage } from "./views/Pages/CartPage/CartPage";
 import CheckoutForm from "./views/Pages/CheckoutForm/CheckoutForm";
 import InformationUserCheckout from "./views/Pages/InformationUserCheckout/InformationUserCheckout";
 import CheckoutPayments from "./views/Pages/CheckoutPayments/CheckoutPayments";
+import Finish from "./views/Finish";
 
 function App() {
   const [load, setLoad] = useState(true);
@@ -35,7 +36,6 @@ function App() {
       <div className="Container">
         <SearchProvider>
         <YellowTop />
-        <NavBar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route
@@ -64,6 +64,8 @@ function App() {
           <Route path="/checkform" element= {<CheckoutForm/>}></Route>
           <Route path="/checkform/confirmation" element= {<InformationUserCheckout/>}></Route>
           <Route path="/checkform/payments" element= {<CheckoutPayments/>}></Route>
+          <Route path="/checkform/validation" element= {<FormPayment/>}></Route>
+          <Route path="/checkform/finish" element= {<Finish/>}></Route>
         </Routes>
         <Footers />
         </SearchProvider>

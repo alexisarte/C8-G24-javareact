@@ -3,10 +3,12 @@ import { SlideBar } from '../../Slides/SlideBar/SlideBar';
 import Services from '../../Services';
 import imgChicaHome from '../../../assets/img-chica-home.png'
 import Catalog from '../../catalog/Catalog';
+import NavBar from '../../navBar/NavBar';
 
 const Home = () => {
   return (
     <>
+      <NavBar />
       <SlideBar />
       <div className="flex flex-row max-xl:flex-wrap bg-[#fbabafae] max-xl:justify-center ">
         <img className="max-lg:w-96" src={imgChicaHome}></img>
