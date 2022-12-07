@@ -3,19 +3,10 @@ import Button from "./Button1";
 import products from "../records/ProductsLists/ProductLists.json";
 import { useParams } from "react-router-dom";
 
-import { useReducer } from "react";
-import { TYPES } from "../actions/ShoppingAction";
-
 function Product() {
-  const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-  const { products, cart } = state;
   const { id } = useParams();
 
   const product = products.find((p) => p.id === parseInt(id.slice(1), 10));
-
-  const addTocart = (id) => {
-    dispatch({ type: TYPES.ADD_TO_CART, payload: id });
-  };
 
   return (
     <div className="flex justify-around bg-[#F5F5F5] p-5">
@@ -50,10 +41,7 @@ function Product() {
             </ul>
           </Card>
           <div className="mt-5">
-            {/* <Button tittle={"Agregar al carrito"}/> */}
-            <button onClick={() => addTocart(product.id)}>
-              Agregar al carrito
-            </button>
+            <Button tittle={"Agregar al carrito"}/>
           </div>
         </div>
       </div>
