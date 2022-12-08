@@ -67,7 +67,7 @@
     "product": "Alimento Royal Canin 8 Kg adulto, raza pequeña",
     "precio": 1000,
     "stock": 22,
-    "cantidad": 21,
+    "cantidad": 1,
     "img": "/src/assets/royal_Canin7.webp",
     "comercios": [
       { "negocio": "Lola Vet", "envio": 500, "precio": 6200 },

@@ -2,11 +2,31 @@ import { Card } from "flowbite-react";
 import Button from "./Button1";
 import products from "../records/ProductsLists/ProductLists.json";
 import { useParams } from "react-router-dom";
+import { useContext, useState } from "react";
+import CartContext from "../CartContext";
 
 function Product() {
   const { id } = useParams();
+  const indexProduct = products.findIndex(
+    (p) => p.id === parseInt(id.slice(1), 10)
+  );
+  const [product, setProduct] = useState(products[indexProduct]);
+  const [cantidad, setCantidad] = useState(1);
+  const { cart, setCart } = useContext(CartContext);
 
-  const product = products.find((p) => p.id === parseInt(id.slice(1), 10));
+  const addToCart = () => {
+    setCart([...cart, product]);
+  };
+
+  const handleChange = (e) => {
+    if (e.target.value > 1) {
+      setCantidad(e.target.value);
+      let cart2 = cart;
+      cart2[indexProduct].cantidad = e.target.value;
+      setCart(cart2);
+    }
+    console.log(e.target.value);
+  };
 
   return (
     <div className="flex justify-around bg-[#F5F5F5] p-5">
@@ -30,7 +50,9 @@ function Product() {
               </li>
               <li>
                 cantidad:{" "}
-                <select className="bg-[#D9D9D9]">
+                <select
+                  className="bg-[#D9D9D9]"
+                >
                   {[...Array(product.stock).keys()].map((i) => (
                     <option key={i} value={i + 1}>
                       {i + 1}
@@ -41,7 +63,9 @@ function Product() {
             </ul>
           </Card>
           <div className="mt-5">
-            <Button tittle={"Agregar al carrito"}/>
+            <button onClick={() => addToCart()}>
+              <Button tittle={"Agregar al carrito"} />
+            </button>
           </div>
         </div>
       </div>

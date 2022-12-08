@@ -12,6 +12,7 @@ import ProductCard from "./views/catalog/ProductCard";
 import FormPayment from "./views/FormPayment";
 
 import { SearchProvider } from "./views/Context/SearchContext/SearchContext";
+import { CartProvider } from "./views/CartContext";
 import { CartPage } from "./views/Pages/CartPage/CartPage";
 import CheckoutForm from "./views/Pages/CheckoutForm/CheckoutForm";
 import InformationUserCheckout from "./views/Pages/InformationUserCheckout/InformationUserCheckout";
@@ -27,51 +28,60 @@ function App() {
     }, 3550);
   }, []);
 
-  if (load) {
-     return(
-       <Onboarding/>
-     )
-   } else {
+  // if (load) {
+  //   return <Onboarding />;
+  // } else {
     return (
       <div className="Container">
-        <SearchProvider>
-        <YellowTop />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/perros/:product"
-            element={<Products name="perros" />}
-          ></Route>
-          <Route
-            path="/gatos/:product"
-            element={<Products name="gatos" />}
-          ></Route>
-          <Route
-            path="/otros/:product"
-            element={<Products name="otros" />}
-          ></Route>
-          <Route
-            path="/promociones/:product"
-            element={<Products name="promociones" />}
-          ></Route>
-          <Route
-            path="/servicios/:product"
-            element={<Products name="servicios" />}
-          ></Route>
-          <Route path="/producto/:id" element={<ProductCard />}></Route>
-          <Route path="/search" element={<SearchPage />}></Route>
-          <Route path="/cart" element = {<CartPage/>} ></Route>
-          <Route path="/checkform" element= {<CheckoutForm/>}></Route>
-          <Route path="/checkform/confirmation" element= {<InformationUserCheckout/>}></Route>
-          <Route path="/checkform/payments" element= {<CheckoutPayments/>}></Route>
-          <Route path="/checkform/validation" element= {<FormPayment/>}></Route>
-          <Route path="/checkform/finish" element= {<Finish/>}></Route>
-        </Routes>
-        <Footers />
-        </SearchProvider>
+        <CartProvider>
+          <SearchProvider>
+            <YellowTop />
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route
+                path="/perros/:product"
+                element={<Products name="perros" />}
+              ></Route>
+              <Route
+                path="/gatos/:product"
+                element={<Products name="gatos" />}
+              ></Route>
+              <Route
+                path="/otros/:product"
+                element={<Products name="otros" />}
+              ></Route>
+              <Route
+                path="/promociones/:product"
+                element={<Products name="promociones" />}
+              ></Route>
+              <Route
+                path="/servicios/:product"
+                element={<Products name="servicios" />}
+              ></Route>
+              <Route path="/producto/:id" element={<ProductCard />}></Route>
+              <Route path="/search" element={<SearchPage />}></Route>
+              <Route path="/cart" element={<CartPage />}></Route>
+              <Route path="/checkform" element={<CheckoutForm />}></Route>
+              <Route
+                path="/checkform/confirmation"
+                element={<InformationUserCheckout />}
+              ></Route>
+              <Route
+                path="/checkform/payments"
+                element={<CheckoutPayments />}
+              ></Route>
+              <Route
+                path="/checkform/validation"
+                element={<FormPayment />}
+              ></Route>
+              <Route path="/checkform/finish" element={<Finish />}></Route>
+            </Routes>
+            <Footers />
+          </SearchProvider>
+        </CartProvider>
       </div>
     );
   }
-}
+// }
 
 export default App;

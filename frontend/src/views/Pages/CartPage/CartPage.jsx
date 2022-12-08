@@ -11,7 +11,13 @@ import Datepicker from "react-tailwindcss-datepicker";
 
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+import CartContext from "../../CartContext";
+
 export const CartPage = () => {
+
+  const { cart, setCart, cartItems, setCartItems } = useContext(CartContext);
+
   const [optionText, setOptionText] = useState();
   const [print, setPrint] = useState();
   const [impress, setImpress] = useState();
@@ -134,7 +140,7 @@ export const CartPage = () => {
 
   return (
     <div className="container mx-auto my-16">
-      <CartList products={products} />
+      <CartList products={cart} />
       <div className="mt-8 flex gap-2 sm:gap-6 md:gap-10 max-sm:flex-wrap max-sm:justify-center">
         <Card className="basis-2/4 max-sm:basis-4/5">
           <form className="flex flex-col gap-4" onSubmit={handleSubmitCart}>
