@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="300" src="/C8-G24-javareact/img-readme/KAI-PET.svg">
+  <img width="300" src="./C8-G24-javareact/img-readme/KAI-PET.svg">
 </div>
 
 
