@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="300" src="./img-readme/KAI-PET.svg">
+  <img width="150" src="./img-readme/KAI-PET.svg">
 </div>
 
 
