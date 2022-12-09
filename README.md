@@ -23,7 +23,7 @@ Para crear el sitio y su diseño fueron utilizadas las siguientes herrammientas.
 
 ### Para utilizar la aplicación: 
 
-1 En el escritorio crear una carpeta para uso con un nombre que pueda recordar
+1 En el escritorio crear una carpeta para uso con un nombre que pueda recordar <br>
 2 buscar en el repositorio de la nube  el que vas a clonar 
 3 En dar click en el botón verde llamado código y copiar la ruta que este trae
 4 Descargar NJS según la necesidad del proyecto y las especificaciones del equipo con el que contamos
@@ -49,4 +49,4 @@ Alexis Rodriguez - Frontend
 Sebastián Barcia - Frontend
 
 ##### NO COUNTRY
-Gracias a la plataforma NO COUNTRY por dejarnos desarrollarnos en el ambito IT. 
+De parte de todo el equipo de KAI PET agradecemos a la plataforma NO COUNTRY por dejarnos desarrollarnos en el ambito IT. 
