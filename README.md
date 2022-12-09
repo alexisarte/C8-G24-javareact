@@ -1,6 +1,7 @@
-<h2 align="center">
+<div align="center">
   KAI PET
-</h2>
+  ![DesktopVideo](img-readme/KAI-PET.svg)
+</div>
 
 
 # Acerca del proyecto
