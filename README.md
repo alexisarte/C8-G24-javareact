@@ -1,4 +1,4 @@
-<h2 class="text-center">
+<h2 align="center">
   KAI PET
 </h2>
 
