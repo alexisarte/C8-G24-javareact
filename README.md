@@ -1,4 +1,7 @@
-KAI PET
+<div class="text-center">
+  KAI PET
+</div>
+
 
 # Acerca del proyecto
 
@@ -40,12 +43,12 @@ Para crear el sitio y su diseño fueron utilizadas las siguientes herrammientas.
 
 #### Equipo de trabajo
 
-Alejandra Ortiz - Tester QA
-Alejandra Vedoya - Backend
-Leandro Vizgarra - Backend
-Micaela Echegaray - UX/UI 
-Alexis Rodriguez - Frontend
-Sebastián Barcia - Frontend
+Alejandra Ortiz - Tester QA <br>
+Alejandra Vedoya - Backend <br>
+Leandro Vizgarra - Backend <br>
+Micaela Echegaray - UX/UI <br>
+Alexis Rodriguez - Frontend <br>
+Sebastián Barcia - Frontend <br>
 
 ##### NO COUNTRY
-De parte de todo el equipo de KAI PET agradecemos a la plataforma NO COUNTRY por dejarnos desarrollarnos en el ambito IT. 
+De parte de todo el equipo de KAI PET agradecemos a la plataforma NO COUNTRY por dejarnos desarrollarnos en esta linda experiencia!. 
