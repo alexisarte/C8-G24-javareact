@@ -1,3 +1,28 @@
+KAI PET
+
+# Acerca del proyecto
+
+🛍️ KAI PET es un comparador de productos para mascotas en las tiendas asociadas a la aplicación.
+
+🏁 El proyecto terminó el 8/12/2023 pero se va seguir escalando en sus funcionalidades y su aspecto visual.
+
+## Herramientas utilizadas
+Para crear el sitio y su diseño fueron utilizadas las siguientes herrammientas. 
+
+👩🏻‍🎨 FIGMA : Diseño mediante wireframes en media y alta definición. Ademas se realizó el prototipado del sitio web. 
+
+❤️ REACT JS : React es una biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página.
+
+✨ UI TAILWIND + FLOWBITE : Componentes, íconos, estilos y cuadrículas de diseño de Tailwind (https://tailwindcss.com/) y Flowbite (https://flowbite-react.com/) una dependencia asociada al diseño de Tailwind y en este caso para reactJS. 
+
+📱 CSS: En combinacion con tailwind, flowbite y CSS se maquetó un sitio 100% responsive.  
+
+🔙 BACKEND : Usamos JAVA.
+
+🖌️ Las imágenes y vectores fueron trabajados con illustrator y photoshop.
+
+### Para utilizar la aplicación: 
+
 1 En el escritorio crear una carpeta para uso con un nombre que pueda recordar
 2 buscar en el repositorio de la nube  el que vas a clonar 
 3 En dar click en el botón verde llamado código y copiar la ruta que este trae
@@ -13,3 +38,15 @@
   ➜  Local:   http://localhost:5173/
 13 Para actualizar cambio git pull origin development
 14 Para correr lo cambios npm run dev 
+
+#### Equipo de trabajo
+
+Alejandra Ortiz - Tester QA
+Alejandra Vedoya - Backend
+Leandro Vizgarra - Backend
+Micaela Echegaray - UX/UI 
+Alexis Rodriguez - Frontend
+Sebastián Barcia - Frontend
+
+##### NO COUNTRY
+Gracias a la plataforma NO COUNTRY por dejarnos desarrollarnos en el ambito IT. 
