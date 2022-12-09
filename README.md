@@ -1,6 +1,6 @@
-<div class="text-center">
+<h2 class="text-center">
   KAI PET
-</div>
+</h2>
 
 
 # Acerca del proyecto
