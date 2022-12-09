@@ -1,6 +1,6 @@
 <div align="center">
   KAI PET
-  ![DesktopVideo](img-readme/KAI-PET.svg)
+  ![DesktopVideo](/C8-G24-javareact/img-readme/KAI-PET.svg)
 </div>
 
 
